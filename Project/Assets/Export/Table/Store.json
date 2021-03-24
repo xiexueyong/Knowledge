@@ -1,0 +1,13 @@
+[{"Id":1,"StoreId":"gold1","Name":"First Recharge's Bundle","Icon":"ui_gift_A3","ShowLevel":1,"Coin":500,"Content":"5:1,101:2,103:2,102:2,202:1,201:1,203:1,205:1","NoAd":1,"Price":99,"Rank":1},
+{"Id":2,"StoreId":"gold2","Name":"Beginner's Bundle","Icon":"ui_gift_A3","ShowLevel":1,"Coin":200,"Content":"103:1,101:1,202:1,102:1,203:1,201:1,205:1","NoAd":1,"Price":199,"Rank":2},
+{"Id":3,"StoreId":"gold8","Name":"Polar Blast Bundle","Icon":"ui_gift_A3","ShowLevel":1,"Coin":500,"Content":"103:1,101:1,202:1,102:1,203:1,201:1,205:1","NoAd":1,"Price":699,"Rank":3},
+{"Id":4,"StoreId":"gold9","Name":"Super Bundle","Icon":"ui_gift_A3","ShowLevel":1,"Coin":1000,"Content":"103:3,101:3,202:3,102:3,203:3,201:3,205:3","NoAd":1,"Price":1299,"Rank":4},
+{"Id":5,"StoreId":"gold10","Name":"Mega Bundle","Icon":"ui_gift_A3","ShowLevel":1,"Coin":2000,"Content":"6:1,101:5,103:5,102:5,202:5,201:5,203:5,205:5","NoAd":1,"Price":2499,"Rank":5},
+{"Id":6,"StoreId":"gold6","Name":"Giant Bundle","Icon":"ui_gift_A3","ShowLevel":1,"Coin":4000,"Content":"7:1,101:12,103:12,102:12,202:12,201:12,203:12,205:12","NoAd":1,"Price":4999,"Rank":6},
+{"Id":7,"StoreId":"gold7","Name":"Champion's Bundle","Icon":"ui_gift_A3","ShowLevel":1,"Coin":8000,"Content":"8:1,101:25,103:25,102:25,202:25,201:25,203:25,205:25","NoAd":1,"Price":9999,"Rank":7},
+{"Id":8,"StoreId":"gold2","Name":"","Icon":"","ShowLevel":1,"Coin":150,"Content":"","NoAd":0,"Price":199,"Rank":8},
+{"Id":9,"StoreId":"gold3","Name":"","Icon":"","ShowLevel":1,"Coin":500,"Content":"","NoAd":0,"Price":499,"Rank":9},
+{"Id":10,"StoreId":"gold4","Name":"","Icon":"","ShowLevel":1,"Coin":1000,"Content":"","NoAd":0,"Price":999,"Rank":10},
+{"Id":11,"StoreId":"gold5","Name":"","Icon":"","ShowLevel":1,"Coin":2000,"Content":"","NoAd":0,"Price":1999,"Rank":11},
+{"Id":12,"StoreId":"gold11","Name":"","Icon":"","ShowLevel":1,"Coin":4000,"Content":"","NoAd":0,"Price":3999,"Rank":12},
+{"Id":13,"StoreId":"gold12","Name":"","Icon":"","ShowLevel":1,"Coin":8000,"Content":"","NoAd":0,"Price":7999,"Rank":13}]

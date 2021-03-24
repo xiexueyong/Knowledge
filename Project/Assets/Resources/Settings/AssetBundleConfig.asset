@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b03dbce393caca4f91e6b8510f5d676, type: 3}
+  m_Name: AssetBundleConfig
+  m_EditorClassIdentifier: 
+  appVersion: 1.0.0
+  AssetVersion: 1.0.153
+  UseAssetBundle: 0
+  ReleaseImmediate: 0
+  CompleteAsset: 1
+  Groups:
+  - BaseGroup: 1
+    GroupName: Group1
+    bundleInfos:
+    - Path: Prefab
+      BaseBundle: 1
+      releaseMode: 1
+      Multiple: 0
+      subBundleInfos: []
+      multipleView: 0
+    - Path: Table
+      BaseBundle: 1
+      releaseMode: 1
+      Multiple: 0
+      subBundleInfos: []
+      multipleView: 0
+    - Path: Audio
+      BaseBundle: 1
+      releaseMode: 1
+      Multiple: 0
+      subBundleInfos: []
+      multipleView: 0
+    - Path: Match3Submodule/Export
+      BaseBundle: 1
+      releaseMode: 1
+      Multiple: 1
+      subBundleInfos:
+      - Path: Match3Submodule/Export/Animation
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Match3Submodule/Export/Audio
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Match3Submodule/Export/Match
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Match3Submodule/Export/Texture
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Match3Submodule/Export/component
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Match3Submodule/Export/guide
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Match3Submodule/Export/levels
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Match3Submodule/Export/publicPanel
+        BaseBundle: 1
+        releaseMode: 1
+      multipleView: 1
+    - Path: Texture
+      BaseBundle: 1
+      releaseMode: 1
+      Multiple: 1
+      subBundleInfos:
+      - Path: Texture/CellBorder
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/Furniture
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/GiftIcon
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/LoginRewardIcon
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/Npc
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/NpcIcon
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/Role
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/RoleHeadPhoto
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/RoleItemPhoto
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/TaskIcon
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/chapterScene
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/countryFlag
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Texture/dailyTargetIcon
+        BaseBundle: 1
+        releaseMode: 1
+      multipleView: 1
+  preloadConditions: []

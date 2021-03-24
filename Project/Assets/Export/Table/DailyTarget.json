@@ -1,0 +1,10 @@
+[{"Id":1,"Index":1,"TargetType":"rocket","Icon":"rocket","GoalNum":75,"TitleTxtId":"tuesday","descriptionTxtId":"target_reward","Rewards":"1:100"},
+{"Id":2,"Index":2,"TargetType":"bomb","Icon":"bomb","GoalNum":75,"TitleTxtId":"wednesday","descriptionTxtId":"target_reward","Rewards":"1:100"},
+{"Id":3,"Index":3,"TargetType":"discobomb","Icon":"discobomb","GoalNum":5,"TitleTxtId":"thursday","descriptionTxtId":"target_reward","Rewards":"1:100"},
+{"Id":4,"Index":4,"TargetType":"rocket_rocket","Icon":"rocket_rocket","GoalNum":10,"TitleTxtId":"friday","descriptionTxtId":"target_reward","Rewards":"1:100"},
+{"Id":5,"Index":5,"TargetType":"rocket_bomb","Icon":"rocket_bomb","GoalNum":20,"TitleTxtId":"saturday","descriptionTxtId":"target_reward","Rewards":"1:100"},
+{"Id":6,"Index":6,"TargetType":"bomb_bomb","Icon":"bomb_bomb","GoalNum":20,"TitleTxtId":"sunday","descriptionTxtId":"target_reward","Rewards":"1:100"},
+{"Id":7,"Index":7,"TargetType":"discobomb_discobomb","Icon":"discobomb_discobomb","GoalNum":20,"TitleTxtId":"monday","descriptionTxtId":"target_reward","Rewards":"1:100"},
+{"Id":8,"Index":8,"TargetType":"discobomb_rocket","Icon":"discobomb_rocket","GoalNum":20,"TitleTxtId":"tuesday","descriptionTxtId":"target_reward","Rewards":"1:100"},
+{"Id":9,"Index":9,"TargetType":"discobomb_bomb","Icon":"discobomb_bomb","GoalNum":20,"TitleTxtId":"wednesday","descriptionTxtId":"target_reward","Rewards":"1:100"},
+{"Id":10,"Index":10,"TargetType":"three_star","Icon":"three_star","GoalNum":5,"TitleTxtId":"thursday","descriptionTxtId":"target_reward","Rewards":"1:100"}]
