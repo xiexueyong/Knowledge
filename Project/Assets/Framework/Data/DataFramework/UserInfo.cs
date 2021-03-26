@@ -1,10 +1,7 @@
 ﻿using System;
 using Framework.Storage;
-using Framework.Tables;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using Debug = System.Diagnostics.Debug;
 
 public class UserInfo : IBaseInfo
 {
@@ -81,40 +78,10 @@ public class UserInfo : IBaseInfo
             {
                 MLifeManager.Inst.StartCountDown();
             }
-
-            //int e = value > MLife.LifeMaxCount ? MLife.LifeMaxCount : value;
-            int e = Mathf.Clamp(value, 0, MLife.LifeMaxCount);
-            StorageManager.Inst.GetStorage<StorageUserInfo>().GoodsCount[Table.GoodsId.Energy] = e;
+            int newEnergy = Mathf.Clamp(value, 0, MLife.LifeMaxCount);
+            StorageManager.Inst.GetStorage<StorageUserInfo>().GoodsCount[Table.GoodsId.Energy] = newEnergy;
 
         }
-    }
-
-    //历史付费金额总计
-    public int PayTotal
-    {
-        get { return StorageManager.Inst.GetStorage<StorageUserInfo>().PayTotal; }
-        set { StorageManager.Inst.GetStorage<StorageUserInfo>().PayTotal = value; }
-    }
-
-    //连胜数
-    public int ContinuedWinCount
-    {
-        get { return StorageManager.Inst.GetStorage<StorageUserInfo>().continuedWinCount; }
-        set
-        {
-            if(value < 0)
-                value = 0;
-            StorageManager.Inst.GetStorage<StorageUserInfo>().continuedWinCount = value;
-        }
-    }
-
-    // 当前连胜奖励（皇冠）的等级
-    public int CurrentContinuedWinRewardLevel => getContinuedWinRewardLevel(ContinuedWinCount);
-    
-    // 获取连胜奖励(皇冠)的等级
-    public int getContinuedWinRewardLevel(int continuedWinCount)
-    {
-        return Math.Min(continuedWinCount, Table.GameConst.continuedWin_maxBouns);
     }
 
     public void ChangeEnergy(int count)
@@ -123,15 +90,6 @@ public class UserInfo : IBaseInfo
         {
             Energy += count;
         }
-    }
-
-
-    private int m_UnIncludeFlower = 0;
-
-    public int UnIncludeFlower
-    {
-        set { m_UnIncludeFlower = value; }
-        get { return m_UnIncludeFlower; }
     }
 
     private Dictionary<int, int> _newGoods = new Dictionary<int, int>();
@@ -196,11 +154,4 @@ public class UserInfo : IBaseInfo
             _newGoods.Add(goodsId, count);
         }
     }
-
-    public void SetLevelScore(int level, int score)
-    {
-        StorageManager.Inst.GetStorage<StorageUserInfo>().LevelScore[level] = score;
-    }
-
-
 }

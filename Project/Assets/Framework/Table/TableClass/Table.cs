@@ -10,87 +10,39 @@ public class Table {
         Inited = true;
         if (GameConfig.Inst.DebugEnable && (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor))
         {
-			Language.Init();
-			LevelTutorial.Init();
-			UITutorial.Init();
-			Wheels.Init();
-			SoundDialog.Init();
 			GoodsId.Init();
 			Goods.Init();
 			GoodsBundle.Init();
 			Store.Init();
-			Collection.Init();
 			Inventory.Init();
 			Sound.Init();
 			Sounds.Init();
-			LevelInfo.Init();
-			Furniture.Init();
-			Dialog.Init();
+			Question.Init();
+			Degree.Init();
 			AdChannelPostfix.Init();
-			EffectAndSound.Init();
-			MatchElement.Init();
-			MatchElementId.Init();
-			PurchaseReward.Init();
 			DailyTarget.Init();
-			Task.Init();
-			Role.Init();
-			LoginReward.Init();
-			Gift.Init();
-			LevelReward.Init();
-			StarReward.Init();
-			TutorialReward.Init();
-			Archives.Init();
+			Language.Init();
 			GameConst.Init();
-			Diary.Init();
 
         }
     }
 
     public static void Clear(){
-		Language.Clear();
-		LevelTutorial.Clear();
-		UITutorial.Clear();
-		Wheels.Clear();
-		SoundDialog.Clear();
 		GoodsId.Clear();
 		Goods.Clear();
 		GoodsBundle.Clear();
 		Store.Clear();
-		Collection.Clear();
 		Inventory.Clear();
 		Sound.Clear();
 		Sounds.Clear();
-		LevelInfo.Clear();
-		Furniture.Clear();
-		Dialog.Clear();
+		Question.Clear();
+		Degree.Clear();
 		AdChannelPostfix.Clear();
-		EffectAndSound.Clear();
-		MatchElement.Clear();
-		MatchElementId.Clear();
-		PurchaseReward.Clear();
 		DailyTarget.Clear();
-		Task.Clear();
-		Role.Clear();
-		LoginReward.Clear();
-		Gift.Clear();
-		LevelReward.Clear();
-		StarReward.Clear();
-		TutorialReward.Clear();
-		Archives.Clear();
+		Language.Clear();
 		GameConst.Clear();
-		Diary.Clear();
 
     }
-	public static  TableLanguage Language = new  TableLanguage();
-
-	public static  TableLevelTutorial LevelTutorial = new  TableLevelTutorial();
-
-	public static  TableUITutorial UITutorial = new  TableUITutorial();
-
-	public static  TableWheels Wheels = new  TableWheels();
-
-	public static  TableSoundDialog SoundDialog = new  TableSoundDialog();
-
 	public static  TableGoodsId GoodsId = new  TableGoodsId();
 
 	public static  TableGoods Goods = new  TableGoods();
@@ -99,51 +51,23 @@ public class Table {
 
 	public static  TableStore Store = new  TableStore();
 
-	public static  TableCollection Collection = new  TableCollection();
-
 	public static  TableInventory Inventory = new  TableInventory();
 
 	public static  TableSound Sound = new  TableSound();
 
 	public static  TableSounds Sounds = new  TableSounds();
 
-	public static  TableLevelInfo LevelInfo = new  TableLevelInfo();
+	public static  TableQuestion Question = new  TableQuestion();
 
-	public static  TableFurniture Furniture = new  TableFurniture();
-
-	public static  TableDialog Dialog = new  TableDialog();
+	public static  TableDegree Degree = new  TableDegree();
 
 	public static  TableAdChannelPostfix AdChannelPostfix = new  TableAdChannelPostfix();
 
-	public static  TableEffectAndSound EffectAndSound = new  TableEffectAndSound();
-
-	public static  TableMatchElement MatchElement = new  TableMatchElement();
-
-	public static  TableMatchElementId MatchElementId = new  TableMatchElementId();
-
-	public static  TablePurchaseReward PurchaseReward = new  TablePurchaseReward();
-
 	public static  TableDailyTarget DailyTarget = new  TableDailyTarget();
 
-	public static  TableTask Task = new  TableTask();
-
-	public static  TableRole Role = new  TableRole();
-
-	public static  TableLoginReward LoginReward = new  TableLoginReward();
-
-	public static  TableGift Gift = new  TableGift();
-
-	public static  TableLevelReward LevelReward = new  TableLevelReward();
-
-	public static  TableStarReward StarReward = new  TableStarReward();
-
-	public static  TableTutorialReward TutorialReward = new  TableTutorialReward();
-
-	public static  TableArchives Archives = new  TableArchives();
+	public static  TableLanguage Language = new  TableLanguage();
 
 	public static  TableGameConst GameConst = new  TableGameConst();
-
-	public static  TableDiary Diary = new  TableDiary();
 
 
 

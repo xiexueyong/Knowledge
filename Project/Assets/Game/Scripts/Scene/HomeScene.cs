@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class HomeScene : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         UIManager.Inst.StartGameImage.gameObject.SetActive(false);
-        UIManager.Inst.ShowUI(UIModuleEnum.UITest);
-        UIManager.Inst.ShowUI(UIModuleEnum.UILobby);
+        UIManager.Inst.ShowUI(UIName.UITest);
+        UIManager.Inst.ShowUI(UIName.UILobby);
         SoundPlay.PlayMusic("music_04");
         Debug.Log("Homescene ");
     }

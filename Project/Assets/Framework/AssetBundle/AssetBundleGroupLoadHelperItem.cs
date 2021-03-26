@@ -118,7 +118,7 @@ namespace Framework.Asset
                 int freeSpace = SimpleDiskUtils.DiskUtils.CheckAvailableSpace();
                 if (fileSize > freeSpace)
                 {
-                    UIManager.Inst.ShowUI(UIModuleEnum.UICommonTipWithTitle, false, "Available space is not enough,please retry after release", "ok");
+                    UIManager.Inst.ShowUI(UIName.UICommonTipWithTitle, false, "Available space is not enough,please retry after release", "ok");
                     while (fileSize > freeSpace)
                     {
                         if (loadingStatus == LoadingStatus.Pause)

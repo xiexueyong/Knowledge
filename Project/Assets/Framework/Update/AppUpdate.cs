@@ -29,7 +29,7 @@ public class AppUpdate
             //升级App
             if (!string.IsNullOrEmpty(upgradeInfo.noticeContent))
             {
-                UIAnnouncement uiAnnouncement = UIManager.Inst.ShowUI(UIModuleEnum.UIAnnouncement,false, upgradeInfo.noticeTitle, upgradeInfo.noticeContent, upgradeInfo.appUrl, upgradeInfo.appUpdateType != (int)UpdateType.Upgrade) as UIAnnouncement;
+                UIAnnouncement uiAnnouncement = UIManager.Inst.ShowUI(UIName.UIAnnouncement,false, upgradeInfo.noticeTitle, upgradeInfo.noticeContent, upgradeInfo.appUrl, upgradeInfo.appUpdateType != (int)UpdateType.Upgrade) as UIAnnouncement;
                 while (!uiAnnouncement.isClosed)
                 {
                     yield return null;
@@ -38,7 +38,7 @@ public class AppUpdate
             yield break;
         }else if (upgradeInfo.assetUpdateType == (int)UpdateType.Upgrade && !string.IsNullOrEmpty(upgradeInfo.assetUrl))
         {
-            UIGameLoading uiGameLoading = UIManager.Inst.ShowUI(UIModuleEnum.UIGameLoading) as UIGameLoading;
+            UIGameLoading uiGameLoading = UIManager.Inst.ShowUI(UIName.UIGameLoading) as UIGameLoading;
 
             //下载资源
             ProgressInfo progressInfo = new ProgressInfo();
@@ -55,11 +55,11 @@ public class AppUpdate
                 Res.Init();
                 Table.Init();
             }
-            UIManager.Inst.CloseUI(UIModuleEnum.UIGameLoading);
+            UIManager.Inst.CloseUI(UIName.UIGameLoading);
             // //资源更新更告
              if (!string.IsNullOrEmpty(upgradeInfo.noticeContent))
             {
-                UIAnnouncement uiAnnouncement = UIManager.Inst.ShowUI(UIModuleEnum.UIAnnouncement, false, upgradeInfo.noticeTitle, upgradeInfo.noticeContent, "", false) as UIAnnouncement;
+                UIAnnouncement uiAnnouncement = UIManager.Inst.ShowUI(UIName.UIAnnouncement, false, upgradeInfo.noticeTitle, upgradeInfo.noticeContent, "", false) as UIAnnouncement;
                 while (!uiAnnouncement.isClosed)
                 {
                     yield return null;

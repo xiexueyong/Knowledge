@@ -7,18 +7,16 @@ using UnityEngine.UI;
 public class EnergyTopBarItem : TopBarItem
 {
     private Image InfiniteImage;
-    private Text EnergyCountText;
+    private Text CuontText;
     private Text TimeText;
 
     protected override void Awake()
     {
         base.Awake();
-        EnergyCountText = this.transform.Find("EnergyCountText").GetComponent<Text>();
+        CuontText = this.transform.Find("CuontText").GetComponent<Text>();
         TimeText = this.transform.Find("TimeText").GetComponent<Text>();
-        InfiniteImage = this.transform.Find("InfiniteImage").GetComponent<Image>();
 
         ShowEnergy();
-        //EventManager.Subscribe(EventManagerType.PassOneSecond, ShowEnergy);
         SystemClock.AddListener(ShowEnergy);
     }
 
@@ -29,7 +27,7 @@ public class EnergyTopBarItem : TopBarItem
         {
             string time = CommonUtil.SecondToTimeFormat(MLifeManager.Inst.RemainInfiniteSecond);
             TimeText.text = string.Format(time);
-            EnergyCountText.gameObject.SetActive(false);
+            CuontText.gameObject.SetActive(false);
             InfiniteImage.gameObject.SetActive(true);
         }
         else
@@ -41,23 +39,23 @@ public class EnergyTopBarItem : TopBarItem
             }
             else
             {
-                TimeText.text = LanguageTool.Get("full");
+                TimeText.text = "满";
             }
 
-            InfiniteImage.gameObject.SetActive(false);
-            EnergyCountText.gameObject.SetActive(true);
-            EnergyCountText.text = energy.ToString();
+            // InfiniteImage.gameObject.SetActive(false);
+            CuontText.gameObject.SetActive(true);
+            CuontText.text = string.Format("{0}/{1}",energy.ToString(),MLife.LifeMaxCount);
         }
     }
 
-    protected override void onClick()
+    protected void onClick()
     {
         if (topBarType == TopBarType.Energy)
         {
             if (DataManager.Inst.userInfo.Energy < MLife.LifeMaxCount)
             {
                 //打开LifePanel
-                UIManager.Inst.ShowUI(UIModuleEnum.GameLifeSimplePanel);
+                UIManager.Inst.ShowUI(UIName.GameLifeSimplePanel);
             }
             else
             {

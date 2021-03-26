@@ -6,7 +6,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-codePath = u'Assets/FFF/Scripts/Framework/Storage/'
+codePath = u'Assets/Framework/Storage/'
 excelPath = u'read form parent of current path '
 preClass = "Storage"
 classes = []

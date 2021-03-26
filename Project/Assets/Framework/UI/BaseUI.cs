@@ -15,10 +15,12 @@ public enum TopBarType
     None = 0,
     Coin = 1 << 0,
     Energy = 1 << 1,
-    Star = 1 << 2,
+    //Star = 1 << 2,
     Bg = 1 << 3,//是否显示Topbar的背景
+    Back = 1 << 4,//后退按钮
     Setting = 1 << 5,
-    All = Coin | Setting | Energy | Star | Bg
+    
+    All = Coin | Setting | Energy | Bg | Back
 }
 
 public class BaseUI : MonoBehaviour
@@ -130,7 +132,7 @@ public class BaseUI : MonoBehaviour
     /// <summary>
     /// android用户点击返回键，调用OnEscape
     /// </summary>
-    public virtual void OnEscape()
+    public virtual void OnBack()
     {
         Close();
     }

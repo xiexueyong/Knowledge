@@ -160,7 +160,7 @@ public class BackEventManager : D_MonoSingleton<BackEventManager>
         try
         {
             Log("show exitGame");
-            UIManager.Inst.ShowUI(UIModuleEnum.ExitGame);
+            UIManager.Inst.ShowUI(UIName.ExitGame);
             //            CommonPanelData data = new CommonPanelData();
             //            data.tag = -1;
             //            data.title = "&key.UI_EXIT_Title";

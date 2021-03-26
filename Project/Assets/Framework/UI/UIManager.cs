@@ -80,6 +80,14 @@ public partial class UIManager : S_MonoSingleton<UIManager>
 
 
     private BaseUI curUI;
+    public BaseUI CurUI
+    {
+        get
+        {
+            return curUI;
+        }
+    }
+
     public BaseUI ShowUI(string prefabName,bool isPop = false, params object[] objs)
     {
         BaseUI baseUI = createUI(prefabName, objs);
@@ -256,9 +264,9 @@ public partial class UIManager : S_MonoSingleton<UIManager>
     //return true 表示阻止事件继续往下传播
     public bool Back()
     {
-        if (curUI != null && curUI.IsActive && curUI.CanCloseByBgMask)
+        if (curUI != null && curUI.IsActive)
         {
-            curUI.OnEscape();
+            curUI.OnBack();
             return true;
         }
         return false;

@@ -1,0 +1,4 @@
+[{"Id":1,"type":"C","question":"土豆我们食用的部分是哪部分？","Illustrations":"","anwserA":"根","anwserB":"茎","anwserC":"叶","anwserD":"果实","chooseAnwer":"A","judgeAnwser":"","explanation":""},
+{"Id":2,"type":"C","question":"中国面积最大的省份是哪一个?","Illustrations":"","anwserA":"江苏","anwserB":"广州","anwserC":"新疆","anwserD":"西藏","chooseAnwer":"C","judgeAnwser":"","explanation":""},
+{"Id":3,"type":"J","question":"海洋中最多的生物是鱼","Illustrations":"","anwserA":"","anwserB":"","anwserC":"","anwserD":"","chooseAnwer":"","judgeAnwser":"N","explanation":"最多的生物是浮游生物"},
+{"Id":4,"type":"J","question":"光的传播速度比声的传播速度快","Illustrations":"","anwserA":"","anwserB":"","anwserC":"","anwserD":"","chooseAnwer":"","judgeAnwser":"Y","explanation":"一般声音认定在bai常du温（15摄氏度）下是340m/s，光zhi速是3×10^8m/s。"}]

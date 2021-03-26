@@ -9,7 +9,7 @@ public partial class SceneName
 }
 
 //界面
-public partial class UIModuleEnum
+public partial class UIName
 {
 
 }

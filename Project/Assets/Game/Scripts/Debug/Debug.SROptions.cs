@@ -52,13 +52,7 @@ public partial class SROptions
         get { return DataManager.Inst.userInfo.Energy; }
         set { DataManager.Inst.userInfo.Energy = value; }
     }
-    [Category("UserInfo"), DisplayName("星星")]
-    [Increment(1), NumberRange(0, 20)]
-    public int Star
-    {
-        get { return StorageManager.Inst.GetStorage<StorageUserInfo>().CurStar; }
-        set { StorageManager.Inst.GetStorage<StorageUserInfo>().CurStar = value; }
-    }
+   
     [Category("UserInfo"), DisplayName("无限体力")]
     public void AddInfiniteLife()
     {

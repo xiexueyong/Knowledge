@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class CoinTopBarItem : TopBarItem
 {
     public bool isHomeBar = false;
+    private Text numText;
 
     protected override void Awake()
     {
         base.Awake();
+        numText = transform.Find("CountText").GetComponent<Text>();
         numText.text = DataManager.Inst.userInfo.Coins.ToString();
         EventDispatcher.AddEventListener<int,int,int>(StorageUserInfo.StorageUserInfo_Change_GoodsCount, coinChange);
     }
@@ -20,7 +22,7 @@ public class CoinTopBarItem : TopBarItem
             numText.text = DataManager.Inst.userInfo.Coins.ToString();
     }
 
-    protected override void onClick()
+    protected void onClick()
     {
         if (topBarType == TopBarType.Coin)
         {
@@ -30,7 +32,7 @@ public class CoinTopBarItem : TopBarItem
             }
             else
             {
-                UIManager.Inst.ShowUI(UIModuleEnum.UIShop, false, "popup");
+                UIManager.Inst.ShowUI(UIName.UIShop, false, "popup");
             }
         }
     }

@@ -22,20 +22,8 @@ namespace Framework.Tables
 		public string Name { private set; get; }
 		//物品图标
 		public string Icon { private set; get; }
-		//预制体
-		public string Prefab { private set; get; }
-		//添加booster的prefab
-		public string AddBoosterLogicName { private set; get; }
-		//前置道具
-		public int FrontBooster { private set; get; }
-		//中置道具
-		public int MiddleBooster { private set; get; }
-		//后置道具
-		public int BackBooster { private set; get; }
 		//道具类型
 		public int GoodsType { private set; get; }
-		//解锁等级
-		public int UnlockLevel { private set; get; }
 		//备注
 		public string Des { private set; get; }
 
@@ -73,13 +61,7 @@ namespace Framework.Tables
 					item.Id = itemData["Id"];
 					item.Name = itemData["Name"];
 					item.Icon = itemData["Icon"];
-					item.Prefab = itemData["Prefab"];
-					item.AddBoosterLogicName = itemData["AddBoosterLogicName"];
-					item.FrontBooster = itemData["FrontBooster"];
-					item.MiddleBooster = itemData["MiddleBooster"];
-					item.BackBooster = itemData["BackBooster"];
 					item.GoodsType = itemData["GoodsType"];
-					item.UnlockLevel = itemData["UnlockLevel"];
 					item.Des = itemData["Des"];
 
 
@@ -102,13 +84,7 @@ namespace Framework.Tables
 					item.Id = itemData["Id"];
 					item.Name = itemData["Name"];
 					item.Icon = itemData["Icon"];
-					item.Prefab = itemData["Prefab"];
-					item.AddBoosterLogicName = itemData["AddBoosterLogicName"];
-					item.FrontBooster = itemData["FrontBooster"];
-					item.MiddleBooster = itemData["MiddleBooster"];
-					item.BackBooster = itemData["BackBooster"];
 					item.GoodsType = itemData["GoodsType"];
-					item.UnlockLevel = itemData["UnlockLevel"];
 					item.Des = itemData["Des"];
 
 

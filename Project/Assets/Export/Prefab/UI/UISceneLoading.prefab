@@ -89,14 +89,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPop: 0
   Multiple: 0
-  HasBgMask: 1
-  CanCloseByBgMask: 1
+  HasBgMask: 0
+  CanCloseByBgMask: 0
   Layer: 0
   HideType: 0
   IgnoreControlTopBar: 0
   m_TopBarType: 0
   m_AnimationDetail:
-    m_AnimationType: 1
+    m_AnimationType: 0
     m_BuildInAnimation: 1
     m_ShowAnimationStyle: 0
     m_HideAnimationStyle: 0

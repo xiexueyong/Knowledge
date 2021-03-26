@@ -400,7 +400,7 @@ namespace Framework.Asset
                 int freeSpace = SimpleDiskUtils.DiskUtils.CheckAvailableSpace();
                 if (fileSize > freeSpace)
                 {
-                    UIManager.Inst.ShowUI(UIModuleEnum.UICommonTipWithTitle, false, "Available space is not enough,please retry after release", "ok");
+                    UIManager.Inst.ShowUI(UIName.UICommonTipWithTitle, false, "Available space is not enough,please retry after release", "ok");
                     while (fileSize > freeSpace)
                     {
                         yield return new WaitForSeconds(2f);
@@ -423,7 +423,7 @@ namespace Framework.Asset
                         closeTip = true;
                     };
                     DebugUtil.LogError("AssetBundleManager.LoadAssetBundle fail,filePath:" + filePath);
-                    UIManager.Inst.ShowUI(UIModuleEnum.UICommonTipWithTitle, false, "Net_Problem_Tips" + "..", "Button_ok", tipCallback);
+                    UIManager.Inst.ShowUI(UIName.UICommonTipWithTitle, false, "Net_Problem_Tips" + "..", "Button_ok", tipCallback);
                     while (!closeTip)
                     {
                         yield return null;

@@ -51,7 +51,7 @@ public class SceneLoadManager : S_MonoSingleton<SceneLoadManager>
     /// <returns></returns>
     private IEnumerator LoadSceneAsync(string targetSceneName)
     {
-        UISceneLoading sceneLoading = UIManager.Inst.ShowUI(UIModuleEnum.UISceneLoading) as UISceneLoading;
+        UISceneLoading sceneLoading = UIManager.Inst.ShowUI(UIName.UISceneLoading) as UISceneLoading;
         sceneLoading.SetSceneChangeSequence(m_CurrentSceneName, targetSceneName);
         yield return sceneLoading.FadeIn();
 
@@ -75,7 +75,7 @@ public class SceneLoadManager : S_MonoSingleton<SceneLoadManager>
 
         m_CurrentSceneName = targetSceneName;
         yield return sceneLoading.FadeOut();
-        UIManager.Inst.CloseUI(UIModuleEnum.UISceneLoading);
+        UIManager.Inst.CloseUI(UIName.UISceneLoading);
     }
 
 

@@ -14,31 +14,9 @@ public class TopBarItem : MonoBehaviour
 {
     [EnumToggleButtons]
     public TopBarType topBarType;
-
-    protected Button button;
-    protected Text numText;
     protected Transform iconTransform;
-
     protected virtual void Awake()
     {
-        iconTransform = transform.Find("icon");
-        button = transform.GetComponent<Button>();
-        numText = transform.Find("numText")?.GetComponent<Text>();
-        button?.onClick.AddListener(onClick);
-       
-    }
-    public void setNum(int count)
-    {
-        if(numText != null)
-            numText.text = count.ToString();
-    }
-    protected virtual void onClick()
-    {
-        if (topBarType == TopBarType.Coin)
-        {
-            //打开金币面板
-        }
-
     }
 
     public void Fly(Vector3 startPos, Action callback = null)
@@ -61,5 +39,4 @@ public class TopBarItem : MonoBehaviour
             callback?.Invoke();
         });
     }
-
 }

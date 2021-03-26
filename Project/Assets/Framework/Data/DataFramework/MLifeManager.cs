@@ -16,8 +16,8 @@ public class MLifeManager : D_MonoSingleton<MLifeManager>
     protected override void OnAwake()
     {
         MLife.LifeRecoverTime = Table.GameConst.life_time;
+        MLife.LifeMaxCount = Table.GameConst.default_life;
         life = new MLife();
-        //EventManager.Subscribe(EventManagerType.PassOneSecond, PassOneSecond);
         SystemClock.AddListener(PassOneSecond);
         //StartCountDown();
     }
@@ -96,8 +96,8 @@ public class MLifeManager : D_MonoSingleton<MLifeManager>
 
 public class MLife
 {
-    public static int LifeMaxCount = Table.GameConst.default_life;
-	public static int LifeRecoverTime = Table.GameConst.life_time;//1800
+    public static int LifeMaxCount = 5;//Table.GameConst.default_life;
+    public static int LifeRecoverTime = 1800;//Table.GameConst.life_time;//1800
 
 
     /**

@@ -11,17 +11,18 @@ using UnityEngine.UI;
 
 public class SettingTopBarItem : TopBarItem
 {
+    private Button button;
     protected override void Awake()
     {
         button = transform.GetComponent<Button>();
         button?.onClick.AddListener(onClick);
     }
-    protected override void onClick()
+    protected void onClick()
     {
         if (topBarType == TopBarType.Setting)
         {
             //打开金币面板
-            UIManager.Inst.ShowUI(UIModuleEnum.UISetting);
+            UIManager.Inst.ShowUI(UIName.UISetting);
         }
 
     }
