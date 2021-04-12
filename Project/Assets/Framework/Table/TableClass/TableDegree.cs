@@ -24,8 +24,12 @@ namespace Framework.Tables
 		public string degreeName { private set; get; }
 		//升阶
 		public string degreeRaise { private set; get; }
+		//背景
+		public string bg { private set; get; }
+		//背景音乐
+		public string music { private set; get; }
 		//奖励
-		public int Coin { private set; get; }
+		public int coin { private set; get; }
 
 
         private static void AddItem (TableDegree item) {
@@ -62,7 +66,9 @@ namespace Framework.Tables
 					item.levelTop = itemData["levelTop"];
 					item.degreeName = itemData["degreeName"];
 					item.degreeRaise = itemData["degreeRaise"];
-					item.Coin = itemData["Coin"];
+					item.bg = itemData["bg"];
+					item.music = itemData["music"];
+					item.coin = itemData["coin"];
 
 
                     AddItem (item);
@@ -85,7 +91,9 @@ namespace Framework.Tables
 					item.levelTop = itemData["levelTop"];
 					item.degreeName = itemData["degreeName"];
 					item.degreeRaise = itemData["degreeRaise"];
-					item.Coin = itemData["Coin"];
+					item.bg = itemData["bg"];
+					item.music = itemData["music"];
+					item.coin = itemData["coin"];
 
 
                 AddItem (item);

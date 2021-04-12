@@ -420,6 +420,7 @@ MonoBehaviour:
   m_PrefabName: 
   m_root: {fileID: 0}
   _start: 0
+  img_bg: {fileID: 8779866505624876582}
   _btn_explain: {fileID: 3663884460077874645}
   _btn_nextLevel: {fileID: 7892383691136098725}
   _space: {fileID: 4874333481586894753}

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Framework.Asset;
 using Framework.Tables;
 
@@ -17,6 +18,7 @@ public class UIQuestion : BaseUI
     private Text txt_subject;
     private Text txt_question;
 
+    [SerializeField] private Image img_bg;
     [SerializeField] private Button _btn_explain;
     [SerializeField] private Button _btn_nextLevel;
     [SerializeField] private RectTransform _space;
@@ -30,6 +32,7 @@ public class UIQuestion : BaseUI
     public bool anwserRight;
     private int _curLevel;
     private TableQuestion _question;
+    private TableDegree _degree;
     public override void OnAwake()
     {
         _btn_explain.onClick.AddListener(OnExplainClick);
@@ -86,6 +89,15 @@ public class UIQuestion : BaseUI
     {
         Reset();
         _question =Table.Question.Get(questionId);
+        var newDrgree = getDegree(questionId);
+        if (_degree == null)
+            _degree = newDrgree;
+        //背景
+        if (newDrgree.Id != _degree.Id)
+        {
+            img_bg.sprite = Res.LoadResource<Sprite>("Texture/Scapes/"+_degree.bg);
+            SoundPlay.PlayMusic(_degree.music);
+        }
         //题目
         _questionComponent.SetQuestion(_question.subject,_question.question);
         //插图
@@ -149,7 +161,16 @@ public class UIQuestion : BaseUI
     public override void SetData(params object[] args)
     {
         _curLevel = (int)args[0];
+       
+        
         SetQuestion(_curLevel);
         
+    }
+
+    private TableDegree getDegree(int level)
+    {
+        var a = Table.Degree.GetAll();
+        TableDegree c = a.FirstOrDefault((x) => { return x.levelTop >= _curLevel;});
+        return c;
     }
 }

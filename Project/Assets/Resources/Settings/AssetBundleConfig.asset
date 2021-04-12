@@ -36,9 +36,15 @@ MonoBehaviour:
     - Path: Audio
       BaseBundle: 1
       releaseMode: 1
-      Multiple: 0
-      subBundleInfos: []
-      multipleView: 0
+      Multiple: 1
+      subBundleInfos:
+      - Path: Audio/Music
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Audio/Sound
+        BaseBundle: 1
+        releaseMode: 1
+      multipleView: 1
     - Path: Match3Submodule/Export
       BaseBundle: 1
       releaseMode: 1
@@ -74,43 +80,16 @@ MonoBehaviour:
       releaseMode: 1
       Multiple: 1
       subBundleInfos:
-      - Path: Texture/CellBorder
+      - Path: Texture/Degree
         BaseBundle: 1
         releaseMode: 1
-      - Path: Texture/Furniture
+      - Path: Texture/Goods
         BaseBundle: 1
         releaseMode: 1
-      - Path: Texture/GiftIcon
+      - Path: Texture/Scapes
         BaseBundle: 1
         releaseMode: 1
-      - Path: Texture/LoginRewardIcon
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Texture/Npc
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Texture/NpcIcon
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Texture/Role
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Texture/RoleHeadPhoto
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Texture/RoleItemPhoto
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Texture/TaskIcon
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Texture/chapterScene
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Texture/countryFlag
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Texture/dailyTargetIcon
+      - Path: Texture/illustrations
         BaseBundle: 1
         releaseMode: 1
       multipleView: 1

@@ -49,7 +49,7 @@ public static class SoundPlay
     }
     public static void PlayMusic(string clipName,  bool looping = true)
     {
-        if (_inited && isMusicOpen)
+        if (_inited)
         {
             AudioClip audioClip = Res.LoadResource<AudioClip>("Audio/Music/" + clipName);
             if (audioClip != null)
