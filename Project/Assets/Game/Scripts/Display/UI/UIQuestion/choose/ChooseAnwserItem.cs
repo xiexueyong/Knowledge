@@ -18,7 +18,7 @@ public class ChooseAnwserItem : MonoBehaviour
     [SerializeField] private Text contentText;
     [SerializeField] private Button btn;
     [SerializeField] private Image bg;
-
+    [SerializeField] private Image status_sign;
     public Action<bool> OnSelectListener;
     
     private string key;
@@ -40,6 +40,17 @@ public class ChooseAnwserItem : MonoBehaviour
 
     void onSelect()
     {
+        //状态判断
+        if (_status != AnwserStatus.Default)
+        {
+            UIManager.Inst.ShowMessage("已选择此项");
+            return;
+        }
+        if (DataManager.Inst.userInfo.Energy <= 0)
+        {
+            UIManager.Inst.ShowUI(UIName.UIEnergyPanel);
+            return;
+        }
         if (isRight)
         {
             setStaus(AnwserStatus.Right);
@@ -70,12 +81,17 @@ public class ChooseAnwserItem : MonoBehaviour
         {
             case AnwserStatus.Right:
                 bg.sprite = sprite_bg_right;
+                status_sign.gameObject.SetActive(true);
+                status_sign.sprite = sprite_sign_right;
                 break;
             case AnwserStatus.Wrong:
                 bg.sprite = sprite_bg_wrong;
+                status_sign.gameObject.SetActive(true);
+                status_sign.sprite = sprite_sign_wrong;
                 break;
             default:
                 bg.sprite = sprite_bg_default;
+                status_sign.gameObject.SetActive(false);
                 break;
         }
     }

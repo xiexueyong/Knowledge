@@ -131,6 +131,8 @@ def sheetToConstCode(booksheet):
         idtype = str(booksheet.cell(2, 0).value)
         for row in range(2, booksheet.nrows):
             variateName = str(booksheet.cell(row, 0).value).strip()
+            if len(variateName) <= 0:
+                continue
             variateType = str(booksheet.cell(row, 1).value)
             variateRemark = str(booksheet.cell(row, 3).value)
             properties += propertyItemT.replace("#type",VType(variateType)).replace("#property", variateName).replace("#des",variateRemark)
@@ -204,6 +206,8 @@ def sheetToConstJson(booksheet):
 
         for row in range(2,booksheet.nrows):
             variateName = str(booksheet.cell(row, 0).value)
+            if len(variateName) <= 0:
+                continue
             variateType = str(booksheet.cell(row, 1).value)
             variateValue = GetValue(variateType,booksheet.cell(row, 2).value)
             writeData[variateName] = variateValue;

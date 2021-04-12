@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AdjustBgSize : MonoBehaviour
 {
-    public Vector2 DesignSize = new Vector2(1558,720);
+    public Vector2 DesignSize = new Vector2(720,1558);
     public bool offsetChain = false;
     public Image image;
     private void Awake()

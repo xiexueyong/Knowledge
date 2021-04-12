@@ -426,6 +426,23 @@ namespace Framework.Tables {
                 return _popRateUsLevel;
             }
         }
+        /// <summary>
+        /// 查看解析消耗对金币
+        /// </summary>
+        private int _cost_explain;
+        public int cost_explain
+        {
+            private set
+            {
+                _cost_explain = value;
+            }
+            get
+            {
+                if (!Inited)
+                    Init();
+                return _cost_explain;
+            }
+        }
 
 
         public void Init () {
@@ -460,6 +477,7 @@ namespace Framework.Tables {
 				adplay_unlockLevel = itemData["adplay_unlockLevel"];
 				popRateUsPanel = itemData["popRateUsPanel"];
 				popRateUsLevel = itemData["popRateUsLevel"];
+				cost_explain = itemData["cost_explain"];
 
                 Inited = true;
             }
@@ -493,6 +511,7 @@ namespace Framework.Tables {
 				adplay_unlockLevel = itemData["adplay_unlockLevel"];
 				popRateUsPanel = itemData["popRateUsPanel"];
 				popRateUsLevel = itemData["popRateUsLevel"];
+				cost_explain = itemData["cost_explain"];
 
                 Inited = true;
         }

@@ -1,4 +1,5 @@
-[{"Id":1,"type":"C","question":"土豆我们食用的部分是哪部分？","Illustrations":"","anwserA":"根","anwserB":"茎","anwserC":"叶","anwserD":"果实","chooseAnwer":"A","judgeAnwser":"","explanation":""},
-{"Id":2,"type":"C","question":"中国面积最大的省份是哪一个?","Illustrations":"","anwserA":"江苏","anwserB":"广州","anwserC":"新疆","anwserD":"西藏","chooseAnwer":"C","judgeAnwser":"","explanation":""},
-{"Id":3,"type":"J","question":"海洋中最多的生物是鱼","Illustrations":"","anwserA":"","anwserB":"","anwserC":"","anwserD":"","chooseAnwer":"","judgeAnwser":"N","explanation":"最多的生物是浮游生物"},
-{"Id":4,"type":"J","question":"光的传播速度比声的传播速度快","Illustrations":"","anwserA":"","anwserB":"","anwserC":"","anwserD":"","chooseAnwer":"","judgeAnwser":"Y","explanation":"一般声音认定在bai常du温（15摄氏度）下是340m/s，光zhi速是3×10^8m/s。"}]
+[{"Id":1,"subject":"生物","type":"C","question":"土豆我们食用的部分是哪部分？","Illustrations":"","anwserA":"根","anwserB":"茎","anwserC":"叶","anwserD":"果实","chooseAnwer":"B","judgeAnwser":"","explanation":"土豆吃的是茎部。在植物学里，称之为“块茎”。土豆是茄科茄属一年生草本植物，全株可分地上和地下两大部分，地上部分有茎、叶、花、果实和种子，地下部分有根、匍匐茎和块茎。"},
+{"Id":2,"subject":"地理","type":"C","question":"中国面积最大的省份是哪一个?","Illustrations":"map","anwserA":"内蒙","anwserB":"广州","anwserC":"新疆","anwserD":"西藏","chooseAnwer":"C","judgeAnwser":"","explanation":"中国面积最大的省份是新疆维吾尔自治区，简称新，位于中国西北边陲，首府乌鲁木齐，是中国五个少数民族自治区之一，也是中国陆地面积最大的省级行政区，面积166万平方公里，占中国国土总面积六分之一。"},
+{"Id":3,"subject":"生物","type":"J","question":"海洋中最多的生物是鱼","Illustrations":"","anwserA":"","anwserB":"","anwserC":"","anwserD":"","chooseAnwer":"","judgeAnwser":"N","explanation":"海洋中最多的生物是浮游生物。浮游生物泛指生活于水中而缺乏有效移动能力的漂流生物，其中分有浮游植物及浮游动物。
+部分浮游生物具游动能力，但其游动速度往往比它自身所在的洋流流速来得缓慢，因而不能有效地在水中灵活游动。"},
+{"Id":4,"subject":"物理","type":"J","question":"光的传播速度比声的传播速度快","Illustrations":"","anwserA":"","anwserB":"","anwserC":"","anwserD":"","chooseAnwer":"","judgeAnwser":"Y","explanation":"真空中的光速是自然界物体运动的最大速度。物体的质量将随着速度的增大而增大，当物体的速度接近光速时，它的动质量将趋于无穷大，所以质量不为0的物体达到光速是不可能的。只有静质量为零的光子，才始终以光速运动着。光速与任何速度叠加，得到的仍然是光速。"}]

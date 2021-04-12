@@ -14,7 +14,7 @@ public class JudgeAnwsersComponent : MonoBehaviour
 
     public Action<bool> OnSelectListener;
     // Start is called before the first frame update
-    void Init()
+    public void Init()
     {
         anwserItems = new Dictionary<string, JudgeAnwserItem>();
         foreach (var key in _anwserKeys)

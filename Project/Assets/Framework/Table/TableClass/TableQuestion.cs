@@ -18,6 +18,8 @@ namespace Framework.Tables
 
 		//Id
 		public int Id { private set; get; }
+		//科目
+		public string subject { private set; get; }
 		//类型
 		public string type { private set; get; }
 		//题目
@@ -71,6 +73,7 @@ namespace Framework.Tables
                 foreach (var itemData in data.Children) {
                     TableQuestion item = new TableQuestion ();
 					item.Id = itemData["Id"];
+					item.subject = itemData["subject"];
 					item.type = itemData["type"];
 					item.question = itemData["question"];
 					item.Illustrations = itemData["Illustrations"];
@@ -100,6 +103,7 @@ namespace Framework.Tables
             foreach (var itemData in data.Children) {
                 TableQuestion item = new TableQuestion ();
 					item.Id = itemData["Id"];
+					item.subject = itemData["subject"];
 					item.type = itemData["type"];
 					item.question = itemData["question"];
 					item.Illustrations = itemData["Illustrations"];

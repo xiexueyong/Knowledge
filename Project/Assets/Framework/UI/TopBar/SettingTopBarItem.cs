@@ -22,7 +22,7 @@ public class SettingTopBarItem : TopBarItem
         if (topBarType == TopBarType.Setting)
         {
             //打开金币面板
-            UIManager.Inst.ShowUI(UIName.UISetting);
+            UIManager.Inst.ShowUI(UIName.UISettingPanel);
         }
 
     }

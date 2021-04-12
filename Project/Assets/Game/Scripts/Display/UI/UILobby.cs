@@ -19,7 +19,15 @@ public class UILobby : BaseUI
 
     void OnPlayClick()
     {
-        UIManager.Inst.ShowUI(UIName.UIQuestion,false,DataManager.Inst.userInfo.Level);
+        if (DataManager.Inst.userInfo.Level > Table.GameConst.levelMax)
+        {
+            UIManager.Inst.ShowMessage("敬请期待更新");
+        }
+        else
+        {
+            UIManager.Inst.ShowUI(UIName.UIQuestion,false,DataManager.Inst.userInfo.Level);    
+        }
+        
     }
     public override void SetData(params object[] args)
     {
