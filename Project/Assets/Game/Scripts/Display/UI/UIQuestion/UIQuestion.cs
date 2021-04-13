@@ -90,11 +90,10 @@ public class UIQuestion : BaseUI
         Reset();
         _question =Table.Question.Get(questionId);
         var newDrgree = getDegree(questionId);
-        if (_degree == null)
-            _degree = newDrgree;
         //背景
-        if (newDrgree.Id != _degree.Id)
+        if (_degree == null || newDrgree.Id != _degree.Id)
         {
+            _degree = newDrgree;
             img_bg.sprite = Res.LoadResource<Sprite>("Texture/Scapes/"+_degree.bg);
             SoundPlay.PlayMusic(_degree.music);
         }
