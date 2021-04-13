@@ -27,18 +27,18 @@ public class GameController : S_MonoSingleton<GameController>
     }
     private void Start()
     {
-        //取消通知
-        #if UNITY_ANDROID
-        NotifyManager.Inst.cancleAndroidSchaduleAndroidNotification();
-        #elif UNITY_IOS
-        NotifyManager.Inst.cancleIOsSchaduleAndroidNotification();
-        #endif
-        //注册通知
-        #if UNITY_ANDROID
-                NotifyManager.Inst.schaduleAndroidNotifications();
-        #elif UNITY_IOS
-                NotifyManager.Inst.schaduleIosNotifications();
-        #endif
+        // //取消通知
+        // #if UNITY_ANDROID
+        // NotifyManager.Inst.cancleAndroidSchaduleAndroidNotification();
+        // #elif UNITY_IOS
+        // NotifyManager.Inst.cancleIOsSchaduleAndroidNotification();
+        // #endif
+        // //注册通知
+        // #if UNITY_ANDROID
+        //         NotifyManager.Inst.schaduleAndroidNotifications();
+        // #elif UNITY_IOS
+        //         NotifyManager.Inst.schaduleIosNotifications();
+        // #endif
 
     }
 

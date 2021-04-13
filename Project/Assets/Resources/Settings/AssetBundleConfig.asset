@@ -45,36 +45,6 @@ MonoBehaviour:
         BaseBundle: 1
         releaseMode: 1
       multipleView: 1
-    - Path: Match3Submodule/Export
-      BaseBundle: 1
-      releaseMode: 1
-      Multiple: 1
-      subBundleInfos:
-      - Path: Match3Submodule/Export/Animation
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Match3Submodule/Export/Audio
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Match3Submodule/Export/Match
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Match3Submodule/Export/Texture
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Match3Submodule/Export/component
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Match3Submodule/Export/guide
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Match3Submodule/Export/levels
-        BaseBundle: 1
-        releaseMode: 1
-      - Path: Match3Submodule/Export/publicPanel
-        BaseBundle: 1
-        releaseMode: 1
-      multipleView: 1
     - Path: Texture
       BaseBundle: 1
       releaseMode: 1

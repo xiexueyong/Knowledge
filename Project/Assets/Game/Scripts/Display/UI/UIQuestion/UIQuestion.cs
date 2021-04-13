@@ -27,6 +27,7 @@ public class UIQuestion : BaseUI
     [SerializeField] private ChooseAnwsersComponent _chooseAnwsersComponent;
     [SerializeField] private JudgeAnwsersComponent _judgeAnwsersComponent;
     [SerializeField] private ExplainComponent _explainComponent;
+    [SerializeField] private DegreeComponent _degreeComponent;
     
 
     public bool anwserRight;
@@ -41,6 +42,7 @@ public class UIQuestion : BaseUI
         _chooseAnwsersComponent.Init();
         _judgeAnwsersComponent.Init();
         _explainComponent.Init();
+        _degreeComponent.Init();
         _chooseAnwsersComponent.OnSelectListener = OnSelectAnwser;
         _judgeAnwsersComponent.OnSelectListener = OnSelectAnwser;
     }
@@ -97,6 +99,8 @@ public class UIQuestion : BaseUI
             img_bg.sprite = Res.LoadResource<Sprite>("Texture/Scapes/"+_degree.bg);
             SoundPlay.PlayMusic(_degree.music);
         }
+        //学位进度
+        _degreeComponent.SetData(newDrgree,questionId);
         //题目
         _questionComponent.SetQuestion(_question.subject,_question.question);
         //插图
@@ -142,17 +146,16 @@ public class UIQuestion : BaseUI
             _btn_nextLevel.gameObject.SetActive(true);
             if (_curLevel >= DataManager.Inst.userInfo.Level)
             {
-                DataManager.Inst.userInfo.Level = _curLevel + 1;    
+                DataManager.Inst.userInfo.Level = _curLevel + 1;
+                int l = DataManager.Inst.userInfo.Level;
+                _degreeComponent.SetData(getDegree(l),l);
             }
         }
         else
         {
             DataManager.Inst.userInfo.ChangeEnergy(-1);
-            
         }
     }
-    
-    
     public override void OnStart()
     {
     }
