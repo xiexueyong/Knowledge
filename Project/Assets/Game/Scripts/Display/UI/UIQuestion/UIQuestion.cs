@@ -21,6 +21,7 @@ public class UIQuestion : BaseUI
     [SerializeField] private Image img_bg;
     [SerializeField] private Button _btn_explain;
     [SerializeField] private Button _btn_nextLevel;
+    [SerializeField] private Button _btn_illustration;
     [SerializeField] private RectTransform _space;
     [SerializeField] private Image img_illustration;
     [SerializeField] private QuestionComponent _questionComponent;
@@ -28,9 +29,20 @@ public class UIQuestion : BaseUI
     [SerializeField] private JudgeAnwsersComponent _judgeAnwsersComponent;
     [SerializeField] private ExplainComponent _explainComponent;
     [SerializeField] private DegreeComponent _degreeComponent;
+    [SerializeField] private IllustrationComponent _illustrationComponent;
+    
+    [SerializeField] private PrizeComponent _prizeComponent1;
+    [SerializeField] private PrizeComponent _prizeComponent2;
+    [SerializeField] private PrizeComponent _prizeComponent3;
+    [SerializeField] private PrizeComponent _prizeComponent_shengji;
+    [SerializeField] private PrizeComponent _prizeComponent_biye;
+    [SerializeField] private ExplainButton _explainButton;
+    
+    
+    
     
 
-    public bool anwserRight;
+    
     private int _curLevel;
     private TableQuestion _question;
     private TableDegree _degree;
@@ -38,28 +50,44 @@ public class UIQuestion : BaseUI
     {
         _btn_explain.onClick.AddListener(OnExplainClick);
         _btn_nextLevel.onClick.AddListener(OnNextLevelClick);
+        _btn_illustration.onClick.AddListener(onIllustrationClick);
         
         _chooseAnwsersComponent.Init();
         _judgeAnwsersComponent.Init();
         _explainComponent.Init();
         _degreeComponent.Init();
+        _illustrationComponent.Init();
         _chooseAnwsersComponent.OnSelectListener = OnSelectAnwser;
         _judgeAnwsersComponent.OnSelectListener = OnSelectAnwser;
     }
 
+    void onIllustrationClick()
+    {
+        _illustrationComponent.Show();
+    }
+
     void OnExplainClick()
     {
+        if (LevelHelper.Inst.buyExplain)
+        {
+            SoundPlay.PlaySFX(Table.Sound.explain_show);
+            _explainComponent.Show(_question.subject,_question.explanation);
+            return;
+        }
         if (DataManager.Inst.userInfo.Coins < Table.GameConst.cost_explain)
         {
+            SoundPlay.PlaySFX(Table.Sound.click);
             UIManager.Inst.ShowMessage("金币不足");
             UIManager.Inst.ShowUI(UIName.UICoinPanel);
         }
         else
         {
+            SoundPlay.PlaySFX(Table.Sound.explain_show);
+            LevelHelper.Inst.buyExplain = true;
+            _explainButton.setExplainCost(0);
             DataManager.Inst.userInfo.ChangeGoodsCount(Table.GoodsId.Coin,-Table.GameConst.cost_explain);
             _explainComponent.Show(_question.subject,_question.explanation);    
         }
-        
     }
     
     void OnNextLevelClick()
@@ -67,10 +95,12 @@ public class UIQuestion : BaseUI
         int nextLevel = ++_curLevel;
         if (nextLevel > Table.GameConst.levelMax)
         {
+            SoundPlay.PlaySFX(Table.Sound.click);
             UIManager.Inst.ShowMessage("敬请期待更新");
         }
         else
         {
+            SoundPlay.PlaySFX(Table.Sound.next_level);
             SetQuestion(nextLevel);    
         }
         
@@ -78,12 +108,12 @@ public class UIQuestion : BaseUI
 
     void Reset()
     {
-        if (_explainComponent.gameObject.activeSelf)
-        {
-            _explainComponent.gameObject.SetActive(false);
-        }
+        _explainComponent.Hide();
+        _illustrationComponent.Hide();
 
-        anwserRight = false;
+        LevelHelper.Inst.anwserRight = false;
+        LevelHelper.Inst.buyExplain = false;
+        _explainButton.setExplainCost(Table.GameConst.cost_explain);
         _question = null;
     }
 
@@ -106,14 +136,31 @@ public class UIQuestion : BaseUI
         //插图
         if (string.IsNullOrEmpty(_question.Illustrations))
         {
-            img_illustration.gameObject.SetActive(false);
-            _space.gameObject.SetActive(true);
+            noIllustration();
         }
         else
         {
-            img_illustration.gameObject.SetActive(true);
-            img_illustration.sprite = Res.LoadResource<Sprite>("Texture/illustrations/"+_question.Illustrations);
-            _space.gameObject.SetActive(false);
+            
+            var s = Res.LoadResource<Sprite>("Texture/illustrations/"+_question.Illustrations);
+            if (s != null)
+            {
+                img_illustration.gameObject.SetActive(true);
+                _space.gameObject.SetActive(false); 
+                
+                _illustrationComponent.sprite = s;
+                var h = s.texture.height;
+                var w = s.texture.width;
+                var newWidth = w/(h / 215f);//指定高度为215
+                img_illustration.sprite = s;
+                (img_illustration.transform as RectTransform).sizeDelta = new Vector2(newWidth,215);
+                
+            }
+            else
+            { 
+                noIllustration();
+                Debug.LogError("插图不存在："+_question.Illustrations);  
+            }
+          
         }
         //答案 "J" "C"
         if (_question.type == "J")
@@ -137,27 +184,74 @@ public class UIQuestion : BaseUI
         _btn_nextLevel.gameObject.SetActive(false);
 
     }
+
+    void noIllustration()
+    {
+        img_illustration.gameObject.SetActive(false);
+        _illustrationComponent.sprite = null;
+        _space.gameObject.SetActive(true);
+    }
     
     public void OnSelectAnwser(bool isRight)
     {
-        anwserRight = isRight;
+        LevelHelper.Inst.anwserRight = isRight;
         if (isRight)
         {
+            LevelHelper.Inst.rightStreak++;
             _btn_nextLevel.gameObject.SetActive(true);
+            bool upLevel = false;
             if (_curLevel >= DataManager.Inst.userInfo.Level)
             {
                 DataManager.Inst.userInfo.Level = _curLevel + 1;
+                upLevel = true;
                 int l = DataManager.Inst.userInfo.Level;
                 _degreeComponent.SetData(getDegree(l),l);
             }
+            showPraise(LevelHelper.Inst.rightStreak,DataManager.Inst.userInfo.Level);
         }
         else
         {
+            SoundPlay.PlaySFX(Table.Sound.anwser_wrong);
+            LevelHelper.Inst.rightStreak = 0;
             DataManager.Inst.userInfo.ChangeEnergy(-1);
         }
     }
     public override void OnStart()
     {
+    }
+
+    void showPraise(int rightStreak,int level)
+    {
+        var t = getDegree(level);
+        if (t != null && t.levelTop == level)
+        {
+            if (string.IsNullOrEmpty(t.degreeRaise))
+            {
+                //升级
+                SoundPlay.PlaySFX(Table.Sound.upgrade);
+                _prizeComponent_shengji.Show();
+                return;
+            }
+            else
+            {
+                //毕业
+                SoundPlay.PlaySFX(Table.Sound.upgrade);
+                _prizeComponent_biye.Show();    
+                return;
+            }
+        }
+        
+        if (rightStreak >= 3)
+        {
+            _prizeComponent3.Show();
+        }else if (rightStreak >= 2)
+        {
+            _prizeComponent2.Show();
+        }else if (rightStreak >= 1)
+        {
+            _prizeComponent1.Show();
+        }
+        SoundPlay.PlaySFX(Table.Sound.anwser_right);
     }
 
     public override void SetData(params object[] args)
@@ -172,6 +266,23 @@ public class UIQuestion : BaseUI
     private TableDegree getDegree(int level)
     {
         var a = Table.Degree.GetAll();
+        a.Sort((x, y) =>
+            {
+                if (x.levelTop < y.levelTop)
+                {
+                    return -1;
+                }
+                if (x.levelTop == y.levelTop)
+                {
+                    return 0;
+                }
+                if (x.levelTop > y.levelTop)
+                {
+                    return 1;
+                }
+                return 0;
+            }
+        );
         TableDegree c = a.FirstOrDefault((x) => { return x.levelTop >= _curLevel;});
         return c;
     }

@@ -40,6 +40,11 @@ public class JudgeAnwserItem : MonoBehaviour
 
     void onSelect()
     {
+        if (LevelHelper.Inst.anwserRight)
+        {
+            UIManager.Inst.ShowMessage("已选择正确答案");
+            return;
+        }
         //状态判断
         if (_status != AnwserStatus.Default)
         {

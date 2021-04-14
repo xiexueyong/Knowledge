@@ -110,7 +110,7 @@ public static class SoundPlay
         }
         if (_inited)
         {
-            AudioClip audioClip = Res.LoadResource<AudioClip>(clipName);
+            AudioClip audioClip = Res.LoadResource<AudioClip>("Audio/Sound/"+clipName);
             if (audioClip != null)
             {
                 return SoundManager.PlaySFX(audioClip, looping,delay);

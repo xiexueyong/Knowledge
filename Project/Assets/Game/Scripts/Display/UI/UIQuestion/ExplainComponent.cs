@@ -31,7 +31,10 @@ public class ExplainComponent : MonoBehaviour
     }
     public void Hide()
     {
-        transform.gameObject.SetActive(false);
+        if (transform.gameObject.activeSelf)
+        {
+            transform.gameObject.SetActive(false);
+        }
     }
     
 }

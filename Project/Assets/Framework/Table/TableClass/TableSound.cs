@@ -19,6 +19,108 @@ namespace Framework.Tables {
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        private string _anwser_right;
+        public string anwser_right
+        {
+            private set
+            {
+                _anwser_right = value;
+            }
+            get
+            {
+                if (!Inited)
+                    Init();
+                return _anwser_right;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _anwser_wrong;
+        public string anwser_wrong
+        {
+            private set
+            {
+                _anwser_wrong = value;
+            }
+            get
+            {
+                if (!Inited)
+                    Init();
+                return _anwser_wrong;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _click;
+        public string click
+        {
+            private set
+            {
+                _click = value;
+            }
+            get
+            {
+                if (!Inited)
+                    Init();
+                return _click;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _explain_show;
+        public string explain_show
+        {
+            private set
+            {
+                _explain_show = value;
+            }
+            get
+            {
+                if (!Inited)
+                    Init();
+                return _explain_show;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _next_level;
+        public string next_level
+        {
+            private set
+            {
+                _next_level = value;
+            }
+            get
+            {
+                if (!Inited)
+                    Init();
+                return _next_level;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _upgrade;
+        public string upgrade
+        {
+            private set
+            {
+                _upgrade = value;
+            }
+            get
+            {
+                if (!Inited)
+                    Init();
+                return _upgrade;
+            }
+        }
+        /// <summary>
         /// 通用按钮
         /// </summary>
         private string _sfx_common_btn;
@@ -1439,6 +1541,12 @@ namespace Framework.Tables {
             if (!Inited) {
                 string tableStr = TableTool.GetTxt(FileName);
                 JSONNode itemData = JSONNode.Parse (tableStr);
+				anwser_right = itemData["anwser_right"];
+				anwser_wrong = itemData["anwser_wrong"];
+				click = itemData["click"];
+				explain_show = itemData["explain_show"];
+				next_level = itemData["next_level"];
+				upgrade = itemData["upgrade"];
 				sfx_common_btn = itemData["sfx_common_btn"];
 				sfx_common_panel_show = itemData["sfx_common_panel_show"];
 				sfx_special_panel_show = itemData["sfx_special_panel_show"];
@@ -1531,6 +1639,12 @@ namespace Framework.Tables {
 
 
                 JSONNode itemData = JSONNode.Parse (tableStr);
+				anwser_right = itemData["anwser_right"];
+				anwser_wrong = itemData["anwser_wrong"];
+				click = itemData["click"];
+				explain_show = itemData["explain_show"];
+				next_level = itemData["next_level"];
+				upgrade = itemData["upgrade"];
 				sfx_common_btn = itemData["sfx_common_btn"];
 				sfx_common_panel_show = itemData["sfx_common_panel_show"];
 				sfx_special_panel_show = itemData["sfx_special_panel_show"];

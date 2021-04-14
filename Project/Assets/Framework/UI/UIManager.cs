@@ -40,6 +40,9 @@ public partial class UIManager : S_MonoSingleton<UIManager>
     public Action<BaseUI> OnUIShow;
     public Action<BaseUI> OnUIClose;
 
+    private RectTransform _rectTransform;
+    private Vector2? _rectSize;
+
     protected override void OnAwake()
     {
         base.OnAwake();
@@ -73,6 +76,17 @@ public partial class UIManager : S_MonoSingleton<UIManager>
         {
             CloseUI(curUI);
         }
+    }
+
+    
+    public Vector2? GetUISize()
+    {
+        if (_rectSize == null)
+        {
+            _rectTransform = (UICanvas.transform as RectTransform);
+            _rectSize = new Vector2(_rectTransform.rect.width,_rectTransform.rect.height);
+        }
+        return _rectSize;
     }
 
 

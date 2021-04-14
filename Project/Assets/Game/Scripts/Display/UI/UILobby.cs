@@ -19,6 +19,7 @@ public class UILobby : BaseUI
 
     void OnPlayClick()
     {
+        SoundPlay.PlaySFX(Table.Sound.click);
         if (DataManager.Inst.userInfo.Level > Table.GameConst.levelMax)
         {
             UIManager.Inst.ShowMessage("敬请期待更新");
