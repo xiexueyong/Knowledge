@@ -15,12 +15,28 @@ public class DegreeComponent : MonoBehaviour
 
     private TableDegree _curDegree;
     private int levelBottom;
+    private int curLevel;
+    private int levelTop;
     public void Init()
     {
         
     }
 
-    public void SetData(TableDegree degree,int level,int levelBottom)
+    // public void SetData(TableDegree degree,int level,int levelBottom)
+    // {
+    //     if (degree != _curDegree)
+    //     {
+    //         _curDegree = degree;
+    //         txt_degree_name.text = degree.degreeName;
+    //         degree_icon.sprite = Res.LoadResource<Sprite>("Texture/Degree/"+degree.icon);
+    //     }
+    //
+    //     txt_level.text = string.Format("{0}/{1}",level,degree.levelTop);
+    //     //空：10，满：280
+    //     float w = (level-levelBottom)*1f/(_curDegree.levelTop - levelBottom)*270;
+    //     degree_progress.rectTransform.sizeDelta = new Vector2(10+w,18);
+    // }
+    public void SetDegree(TableDegree degree,int levelBottom)
     {
         if (degree != _curDegree)
         {
@@ -29,12 +45,21 @@ public class DegreeComponent : MonoBehaviour
             degree_icon.sprite = Res.LoadResource<Sprite>("Texture/Degree/"+degree.icon);
         }
 
-        txt_level.text = string.Format("{0}/{1}",level,degree.levelTop);
-        //空：10，满：280
-        float w = (level-levelBottom)*1f/(_curDegree.levelTop - levelBottom)*270;
-        degree_progress.rectTransform.sizeDelta = new Vector2(10+w,18);
-
-
-
+        this.levelTop = _curDegree.levelTop;
+        this.levelBottom = levelBottom;
     }
+    public void SetLevel(int level)
+    {
+        if (_curDegree != null)
+        {
+            curLevel = level;
+            txt_level.text = string.Format("{0}/{1}",level,_curDegree.levelTop);
+            //空：10，满：280
+            float w = (level-levelBottom)*1f/(_curDegree.levelTop - levelBottom)*270;
+            degree_progress.rectTransform.sizeDelta = new Vector2(10+w,18);    
+        }
+        
+    }
+    
+    
 }

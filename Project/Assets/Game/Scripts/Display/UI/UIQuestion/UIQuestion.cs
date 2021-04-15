@@ -131,7 +131,8 @@ public class UIQuestion : BaseUI
             SoundPlay.PlayMusic(_degree.music);
         }
         //学位进度
-        _degreeComponent.SetData(newDrgree,questionId,levelBottom);
+        _degreeComponent.SetDegree(newDrgree,levelBottom);
+        _degreeComponent.SetLevel(questionId-1);
         //题目
         _questionComponent.SetQuestion(_question.subject,_question.question);
         //插图
@@ -204,10 +205,8 @@ public class UIQuestion : BaseUI
             if (_curLevel >= DataManager.Inst.userInfo.Level)
             {
                 DataManager.Inst.userInfo.Level = _curLevel + 1;
-                upLevel = true;
-                int l = DataManager.Inst.userInfo.Level;
-                int ldb;
-                _degreeComponent.SetData(LevelHelper.getDegree(l,out ldb),l,ldb);
+                _degreeComponent.SetLevel(_curLevel);
+                showReward(_curLevel);
             }
             showPraise(LevelHelper.Inst.rightStreak,_curLevel);
         }
@@ -222,6 +221,15 @@ public class UIQuestion : BaseUI
     {
     }
 
+    void showReward( int level)
+    {
+        int lb;
+        var t = LevelHelper.getDegree(level,out lb);
+        if (level == t.levelTop)
+        {
+            UIManager.Inst.ShowUI(UIName.UIGetRewardPanel,false, t.coin);
+        }
+    }
     void showPraise(int rightStreak,int level)
     {
         int lb;

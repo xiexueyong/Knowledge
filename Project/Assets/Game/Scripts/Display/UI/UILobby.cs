@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.ComTypes;
 
 public class UILobby : BaseUI
 {
+    [SerializeField]private DegreeComponent _degreeComponent;
     private Button play_btn;
     private Text level_txt;
 
@@ -38,6 +39,11 @@ public class UILobby : BaseUI
     public override void OnStart()
     {
         level_txt.text = DataManager.Inst.userInfo.Level.ToString();
+
+        int lb;
+        var ld = LevelHelper.getDegree(DataManager.Inst.userInfo.Level,out lb);
+        _degreeComponent.SetDegree(ld,lb);
+        _degreeComponent.SetLevel(DataManager.Inst.userInfo.Level-1);
     }
 
 
