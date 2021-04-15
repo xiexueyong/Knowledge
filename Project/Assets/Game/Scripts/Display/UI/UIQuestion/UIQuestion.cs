@@ -121,7 +121,8 @@ public class UIQuestion : BaseUI
     {
         Reset();
         _question =Table.Question.Get(questionId);
-        var newDrgree = getDegree(questionId);
+        int levelBottom;
+        var newDrgree = LevelHelper.getDegree(questionId,out levelBottom);
         //背景
         if (_degree == null || newDrgree.Id != _degree.Id)
         {
@@ -130,7 +131,7 @@ public class UIQuestion : BaseUI
             SoundPlay.PlayMusic(_degree.music);
         }
         //学位进度
-        _degreeComponent.SetData(newDrgree,questionId);
+        _degreeComponent.SetData(newDrgree,questionId,levelBottom);
         //题目
         _questionComponent.SetQuestion(_question.subject,_question.question);
         //插图
@@ -205,9 +206,10 @@ public class UIQuestion : BaseUI
                 DataManager.Inst.userInfo.Level = _curLevel + 1;
                 upLevel = true;
                 int l = DataManager.Inst.userInfo.Level;
-                _degreeComponent.SetData(getDegree(l),l);
+                int ldb;
+                _degreeComponent.SetData(LevelHelper.getDegree(l,out ldb),l,ldb);
             }
-            showPraise(LevelHelper.Inst.rightStreak,DataManager.Inst.userInfo.Level);
+            showPraise(LevelHelper.Inst.rightStreak,_curLevel);
         }
         else
         {
@@ -222,7 +224,8 @@ public class UIQuestion : BaseUI
 
     void showPraise(int rightStreak,int level)
     {
-        var t = getDegree(level);
+        int lb;
+        var t = LevelHelper.getDegree(level,out lb);
         if (t != null && t.levelTop == level)
         {
             if (string.IsNullOrEmpty(t.degreeRaise))
@@ -263,27 +266,4 @@ public class UIQuestion : BaseUI
         
     }
 
-    private TableDegree getDegree(int level)
-    {
-        var a = Table.Degree.GetAll();
-        a.Sort((x, y) =>
-            {
-                if (x.levelTop < y.levelTop)
-                {
-                    return -1;
-                }
-                if (x.levelTop == y.levelTop)
-                {
-                    return 0;
-                }
-                if (x.levelTop > y.levelTop)
-                {
-                    return 1;
-                }
-                return 0;
-            }
-        );
-        TableDegree c = a.FirstOrDefault((x) => { return x.levelTop >= _curLevel;});
-        return c;
-    }
 }

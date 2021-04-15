@@ -20,11 +20,10 @@ public class DegreeComponent : MonoBehaviour
         
     }
 
-    public void SetData(TableDegree degree,int level)
+    public void SetData(TableDegree degree,int level,int levelBottom)
     {
         if (degree != _curDegree)
         {
-            levelBottom = _curDegree == null ? 0 : _curDegree.levelTop;
             _curDegree = degree;
             txt_degree_name.text = degree.degreeName;
             degree_icon.sprite = Res.LoadResource<Sprite>("Texture/Degree/"+degree.icon);

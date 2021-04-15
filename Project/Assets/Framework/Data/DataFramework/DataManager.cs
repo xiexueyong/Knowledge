@@ -54,7 +54,7 @@ public class DataManager : D_MonoSingleton<DataManager>
             userInfo.SetGoodsCount(Table.GoodsId.Coin, Table.GameConst.default_coin);
         }
         //重置测试
-        StorageManager.Inst.GetStorage<StorageUserInfo>().Level = 51;
+        StorageManager.Inst.GetStorage<StorageUserInfo>().Level = 1;
         //检测数据
 	    if (StorageManager.Inst.GetStorage<StorageAccountInfo>().InstallTime <= 0) {
 		    StorageManager.Inst.GetStorage<StorageAccountInfo>().InstallTime = SystemClock.Now;
