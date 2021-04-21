@@ -29,7 +29,7 @@ public class UILobby : BaseUI
         {
             UIManager.Inst.ShowUI(UIName.UIQuestion,false,DataManager.Inst.userInfo.Level);    
         }
-        
+        Close();
     }
     public override void SetData(params object[] args)
     {
@@ -38,12 +38,23 @@ public class UILobby : BaseUI
 
     public override void OnStart()
     {
+        if (!PopStackManager.Inst.IsEmpty())
+        {
+            return;
+        }
         level_txt.text = DataManager.Inst.userInfo.Level.ToString();
 
         int lb;
         var ld = LevelHelper.getDegree(DataManager.Inst.userInfo.Level,out lb);
         _degreeComponent.SetDegree(ld,lb);
         _degreeComponent.SetLevel(DataManager.Inst.userInfo.Level-1);
+
+        ActicityRefresh();
+    }
+
+    void ActicityRefresh()
+    {
+        ActicityDailyWheel.Inst?.Refresh();
     }
 
 

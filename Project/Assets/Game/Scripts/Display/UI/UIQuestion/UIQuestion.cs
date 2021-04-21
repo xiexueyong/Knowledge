@@ -37,6 +37,13 @@ public class UIQuestion : BaseUI
     [SerializeField] private PrizeComponent _prizeComponent_shengji;
     [SerializeField] private PrizeComponent _prizeComponent_biye;
     [SerializeField] private ExplainButton _explainButton;
+    //Rects
+    [SerializeField] private VerticalLayoutGroup _layout;
+    [SerializeField] private RectTransform _layoutRect;
+    [SerializeField] private RectTransform _degreeRect;
+    [SerializeField] private RectTransform _questionRect;
+    [SerializeField] private RectTransform _anwserRect;
+    [SerializeField] private RectTransform _bottomRect;
     
     
     
@@ -127,7 +134,8 @@ public class UIQuestion : BaseUI
         if (_degree == null || newDrgree.Id != _degree.Id)
         {
             _degree = newDrgree;
-            img_bg.sprite = Res.LoadResource<Sprite>("Texture/Scapes/"+_degree.bg);
+            // img_bg.sprite = Res.LoadResource<Sprite>("Texture/Scapes/"+_degree.bg);
+            ScapeTool.Inst.SetScape(_degree.bg);
             SoundPlay.PlayMusic(_degree.music);
         }
         //学位进度
@@ -147,15 +155,15 @@ public class UIQuestion : BaseUI
             if (s != null)
             {
                 img_illustration.gameObject.SetActive(true);
-                _space.gameObject.SetActive(false); 
-                
+                // _space.gameObject.SetActive(false);
+
+                float customHeight = 160f;//指定高度为215
                 _illustrationComponent.sprite = s;
                 var h = s.texture.height;
                 var w = s.texture.width;
-                var newWidth = w/(h / 215f);//指定高度为215
+                var newWidth = w/(h / customHeight);
                 img_illustration.sprite = s;
-                (img_illustration.transform as RectTransform).sizeDelta = new Vector2(newWidth,215);
-                
+                (img_illustration.transform as RectTransform).sizeDelta = new Vector2(newWidth,customHeight);
             }
             else
             { 
@@ -184,14 +192,32 @@ public class UIQuestion : BaseUI
         }
         //解析、下一关
         _btn_nextLevel.gameObject.SetActive(false);
+        //布局适配
+        StartCoroutine(setSpaceHeight());
+    }
 
+    IEnumerator setSpaceHeight()
+    {
+        yield return null;
+        float sumH = _layoutRect.rect.height - _degreeRect.rect.height-_questionRect.rect.height-_anwserRect.rect.height-_bottomRect.rect.height;
+        sumH -= _layout.spacing * 4;
+        if (sumH <= 40)
+        {
+            _space.gameObject.SetActive(false); 
+        }
+        else
+        {
+            yield return null;
+            _space.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, sumH*0.67f);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(_layoutRect);
+        }
     }
 
     void noIllustration()
     {
         img_illustration.gameObject.SetActive(false);
         _illustrationComponent.sprite = null;
-        _space.gameObject.SetActive(true);
+        // _space.gameObject.SetActive(true);
     }
     
     public void OnSelectAnwser(bool isRight)

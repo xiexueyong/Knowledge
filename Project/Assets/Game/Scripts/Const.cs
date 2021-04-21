@@ -16,6 +16,7 @@ public partial class UIName
     public const string UICoinPanel= "Prefab/UI/UICoinPanel";
     public const string UISettingPanel = "Prefab/UI/UISettingPanel";
     public const string UIGetRewardPanel = "Prefab/UI/UIGetRewardPanel";
+    public const string UIWheel = "Prefab/UI/UIWheel/UIWheel";
     
     
     public const string UIGetMoreStarPanel = "Prefab/UI/UIGetMoreStarPanel";

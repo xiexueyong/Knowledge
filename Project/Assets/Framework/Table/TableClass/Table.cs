@@ -10,6 +10,7 @@ public class Table {
         Inited = true;
         if (GameConfig.Inst.DebugEnable && (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor))
         {
+			Wheels.Init();
 			GoodsId.Init();
 			Goods.Init();
 			GoodsBundle.Init();
@@ -28,6 +29,7 @@ public class Table {
     }
 
     public static void Clear(){
+		Wheels.Clear();
 		GoodsId.Clear();
 		Goods.Clear();
 		GoodsBundle.Clear();
@@ -43,6 +45,8 @@ public class Table {
 		GameConst.Clear();
 
     }
+	public static  TableWheels Wheels = new  TableWheels();
+
 	public static  TableGoodsId GoodsId = new  TableGoodsId();
 
 	public static  TableGoods Goods = new  TableGoods();

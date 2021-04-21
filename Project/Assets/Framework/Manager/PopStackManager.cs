@@ -108,6 +108,12 @@ public class PopStackManager : D_MonoSingleton<PopStackManager>
         Pop();
     }
 
+    public bool IsEmpty()
+    {
+        return PopStack == null || PopStack.Count == 0;
+
+    }
+
     void OnUIShow(BaseUI ui)
     {
         if (!ui.IsPop)

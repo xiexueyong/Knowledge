@@ -11,7 +11,9 @@ public class BackTopBarItem : TopBarItem
     {
         btn.onClick.AddListener(() =>
         {
-            UIManager.Inst.Back();
+            //UIManager.Inst.Back();
+            UIManager.Inst.CloseUI(UIName.UIQuestion);
+            UIManager.Inst.ShowUI(UIName.UILobby);
         });
     }
 }
