@@ -8,7 +8,6 @@ public class StartScene : MonoBehaviour
 {
     private void Awake()
     {
-        UIManager.Inst.StartGameImage.gameObject.SetActive(true);
     }
 
     void Start()

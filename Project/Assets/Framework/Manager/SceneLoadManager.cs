@@ -16,6 +16,7 @@ public class SceneLoadManager : S_MonoSingleton<SceneLoadManager>
 {
     private AsyncOperation m_SceneAsyncOperation;
 
+    public SceneMask SceneMask; 
     [SerializeField]
     private string m_CurrentSceneName;//当前场景名称
     public string LastSceneName;//前一个场景名称
@@ -51,11 +52,8 @@ public class SceneLoadManager : S_MonoSingleton<SceneLoadManager>
     /// <returns></returns>
     private IEnumerator LoadSceneAsync(string targetSceneName)
     {
-        UISceneLoading sceneLoading = UIManager.Inst.ShowUI(UIName.UISceneLoading) as UISceneLoading;
-        sceneLoading.SetSceneChangeSequence(m_CurrentSceneName, targetSceneName);
-        yield return sceneLoading.FadeIn();
-
-
+        float t1 = SceneMask.Show(false);
+        yield return new WaitForSeconds(t1);
         m_SceneAsyncOperation = SceneManager.LoadSceneAsync(SceneName.IntermediaScene);
         m_SceneAsyncOperation.allowSceneActivation = true;
 
@@ -74,8 +72,10 @@ public class SceneLoadManager : S_MonoSingleton<SceneLoadManager>
         }
 
         m_CurrentSceneName = targetSceneName;
-        yield return sceneLoading.FadeOut();
-        UIManager.Inst.CloseUI(UIName.UISceneLoading);
+        
+        //隐藏SceneMask,StartScene比较特殊，不隐藏SceneMask。
+        if(m_CurrentSceneName != SceneName.StartScene)
+            SceneMask.Hide(false);
     }
 
 

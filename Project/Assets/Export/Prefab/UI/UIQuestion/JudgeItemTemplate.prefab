@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 260, y: 8.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 54, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4613832260944934317
 CanvasRenderer:
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 79ec65f5f886c4871bf5cd9c1d4b74c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 802f07406d7aa4c3381366cca70cb224, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 55c868a5f9e394f2b960acc3fff61625, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f9a206386276485f83368eb5692c235, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -207,11 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d3b60a3b7504e15927c44c2067dc9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite_bg_default: {fileID: 21300000, guid: 55c868a5f9e394f2b960acc3fff61625, type: 3}
-  sprite_bg_right: {fileID: 21300000, guid: dfea478e7d2c8451b9db2c53cb834978, type: 3}
-  sprite_bg_wrong: {fileID: 21300000, guid: 8c8f2574d16d24553b5f158a3be24011, type: 3}
-  sprite_sign_right: {fileID: 21300000, guid: 79ec65f5f886c4871bf5cd9c1d4b74c9, type: 3}
-  sprite_sign_wrong: {fileID: 21300000, guid: b47321e97048c46cf851ed90e85e8dbc, type: 3}
+  sprite_bg_default: {fileID: 21300000, guid: 3f9a206386276485f83368eb5692c235, type: 3}
+  sprite_bg_right: {fileID: 21300000, guid: 1802dd5725a43449e9e9cc57350c85b5, type: 3}
+  sprite_bg_wrong: {fileID: 21300000, guid: d935d3041e87e4f14910b8913edfab29, type: 3}
+  sprite_sign_right: {fileID: 21300000, guid: 802f07406d7aa4c3381366cca70cb224, type: 3}
+  sprite_sign_wrong: {fileID: 21300000, guid: 3408713a1086146e490a93af6522b971, type: 3}
   contentText: {fileID: 7872450405881314744}
   btn: {fileID: 4601172127543367420}
   bg: {fileID: 290261520476500778}

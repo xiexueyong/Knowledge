@@ -30,11 +30,10 @@ public partial class UIManager : S_MonoSingleton<UIManager>
 
     [NonSerialized]public int chainHeight = 0;
     [SerializeField] public Transform BgMask;
-    [SerializeField] public Transform StartGameImage;
-
     [SerializeField] private Transform CommonLayer;
     [SerializeField] private Transform TipLayer;
     [SerializeField] private Transform TransitionLayer;
+    [SerializeField] private Transform SystemLayer;
     private GameObject WaitingObj;
 
     public Action<BaseUI> OnUIShow;
@@ -65,6 +64,9 @@ public partial class UIManager : S_MonoSingleton<UIManager>
 
         var rectTrans4 = TipLayer.GetComponent<RectTransform>();
         rectTrans4.offsetMax = new Vector2(0, chainHeight);
+        
+        var rectTrans5 = SystemLayer.GetComponent<RectTransform>();
+        rectTrans5.offsetMax = new Vector2(0, chainHeight);
 
         //TransitionLayer充满全屏，不需要下移
         //var rectTrans5 = TransitionLayer.GetComponent<RectTransform>();

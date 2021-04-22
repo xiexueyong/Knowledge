@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AssetBundleConfig
   m_EditorClassIdentifier: 
   appVersion: 1.0.0
-  AssetVersion: 1.0.155
-  UseAssetBundle: 0
+  AssetVersion: 1.0.157
+  UseAssetBundle: 1
   ReleaseImmediate: 0
   CompleteAsset: 1
   Groups:
