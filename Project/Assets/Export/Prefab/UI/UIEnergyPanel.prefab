@@ -332,7 +332,7 @@ MonoBehaviour:
   Layer: 0
   HideType: 0
   IgnoreControlTopBar: 0
-  m_TopBarType: 0
+  m_TopBarType: 3
   m_AnimationDetail:
     m_AnimationType: 1
     m_BuildInAnimation: 1
@@ -674,7 +674,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -177, y: 284}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 48, y: 67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7931970373348549607
 CanvasRenderer:
@@ -703,7 +703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 991b85f638f754d4691e9dcc10d8affb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44324c692567f4de0bcd880df0ba04f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

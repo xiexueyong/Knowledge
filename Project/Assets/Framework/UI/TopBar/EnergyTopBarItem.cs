@@ -1,5 +1,13 @@
-﻿using EventUtil;
+﻿using System;
+using System.Collections;
+using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Core.PathCore;
+using DG.Tweening.Plugins.Options;
+using EventUtil;
+using Framework.Asset;
 using Framework.Storage;
+using Framework.Utils;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,6 +54,22 @@ public class EnergyTopBarItem : TopBarItem
             CuontText.gameObject.SetActive(true);
             CuontText.text = string.Format("{0}/{1}",energy.ToString(),MLife.LifeMaxCount);
         }
+    }
+    
+    protected override IEnumerator FlyCorutinue(Vector3 startPos,Vector3 endPos, Action callback = null)
+    {
+        yield return null;
+        Vector3[] points = { startPos, Utils.GetMiddlePoint(startPos, endPos, 0.2f), endPos };
+        GameObject flyCoin = Res.LoadResource<GameObject>("Prefab/Framework/Animation/FlyEnergy");
+        flyCoin.transform.SetParent(transform.parent.parent);
+        flyCoin.transform.localScale = Vector3.one;
+        flyCoin.transform.position = startPos;
+
+        TweenerCore<Vector3, Path, PathOptions> flyTween = flyCoin.transform.DOPath(points, 1f, PathType.CatmullRom).SetEase(Ease.InOutCubic).OnComplete(() =>
+        {
+            Res.Recycle(flyCoin.gameObject);
+            callback?.Invoke();
+        });
     }
 
     protected void onClick()

@@ -55,13 +55,13 @@ public class TopBarManager : S_MonoSingleton<TopBarManager>
     }
 
 
-    public void Fly(TopBarType topBarType,Vector3 startPos,Action callback = null)
+    public void FlyToBar(TopBarType topBarType,Vector3 startPos,Action callback = null)
     {
         if (topbarItems.ContainsKey(topBarType))
         {
             bool _oldActive = topbarItems[topBarType].gameObject.activeSelf;
             topbarItems[topBarType].gameObject.SetActive(true);
-            topbarItems[topBarType]?.Fly(
+            topbarItems[topBarType]?.FlyToBar(
                 startPos,
                 ()=> {
                     topbarItems[topBarType].gameObject.SetActive(_oldActive);
@@ -69,7 +69,21 @@ public class TopBarManager : S_MonoSingleton<TopBarManager>
                 }
             );
         }
-            
+    }
+    public void FlyFromBar(TopBarType topBarType,Vector3 endPos,Action callback = null)
+    {
+        if (topbarItems.ContainsKey(topBarType))
+        {
+            bool _oldActive = topbarItems[topBarType].gameObject.activeSelf;
+            topbarItems[topBarType].gameObject.SetActive(true);
+            topbarItems[topBarType]?.FlyFromBar(
+                endPos,
+                ()=> {
+                    topbarItems[topBarType].gameObject.SetActive(_oldActive);
+                    callback?.Invoke();
+                }
+            );
+        }
     }
 
 

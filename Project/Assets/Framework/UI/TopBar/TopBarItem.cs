@@ -14,29 +14,21 @@ public class TopBarItem : MonoBehaviour
 {
     [EnumToggleButtons]
     public TopBarType topBarType;
-    protected Transform iconTransform;
+    public Transform iconTransform;
     protected virtual void Awake()
     {
     }
 
-    public void Fly(Vector3 startPos, Action callback = null)
+    public void FlyToBar(Vector3 startPos, Action callback = null)
     {
-        StartCoroutine(FlyCorutinue(startPos,callback));
+        StartCoroutine(FlyCorutinue(startPos,iconTransform.position,callback));
     }
-    private IEnumerator FlyCorutinue(Vector3 startPos, Action callback = null)
+    public void FlyFromBar(Vector3 endPos, Action callback = null)
+    {
+        StartCoroutine(FlyCorutinue(iconTransform.position,endPos,callback));
+    }
+    protected virtual IEnumerator FlyCorutinue(Vector3 startPos,Vector3 endPos, Action callback = null)
     {
         yield return null;
-        Vector3 endPos = iconTransform.position;
-        Vector3[] points = { startPos, Utils.GetMiddlePoint(startPos, endPos, 0.2f), endPos };
-        GameObject flyCoin = Res.LoadResource<GameObject>("Prefab/Framework/Animation/FlyCoin");
-        flyCoin.transform.SetParent(transform.parent.parent);
-        flyCoin.transform.localScale = Vector3.one;
-        flyCoin.transform.position = startPos;
-
-        TweenerCore<Vector3, Path, PathOptions> flyTween = flyCoin.transform.DOPath(points, 1f, PathType.CatmullRom).SetEase(Ease.InOutCubic).OnComplete(() =>
-        {
-            Res.Recycle(flyCoin.gameObject);
-            callback?.Invoke();
-        });
     }
 }

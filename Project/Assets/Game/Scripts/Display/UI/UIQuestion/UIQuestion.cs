@@ -89,12 +89,17 @@ public class UIQuestion : BaseUI
         }
         else
         {
-            SoundPlay.PlaySFX(Table.Sound.explain_show);
-            LevelHelper.Inst.buyExplain = true;
-            _explainButton.setExplainCost(0);
             DataManager.Inst.userInfo.ChangeGoodsCount(Table.GoodsId.Coin,-Table.GameConst.cost_explain);
-            _explainComponent.Show(_question.subject,_question.explanation);    
-        }
+            TopBarManager.Inst.FlyFromBar(TopBarType.Coin,_explainButton.transform.position,
+                () =>
+                {
+                    SoundPlay.PlaySFX(Table.Sound.explain_show);
+                    LevelHelper.Inst.buyExplain = true;
+                    _explainButton.setExplainCost(0);
+                    _explainComponent.Show(_question.subject,_question.explanation);
+                }
+            );
+         }
     }
     
     void OnNextLevelClick()

@@ -30,13 +30,24 @@ public class UIEnergyPanel : BaseUI
 
     void onBtnAdClick()
     {
-        DataManager.Inst.userInfo.ChangeEnergy(MLife.LifeMaxCount);
-        RefreshData();
+        TopBarManager.Inst.FlyToBar(TopBarType.Energy,btn_ad.transform.position,
+            () =>
+            {
+                DataManager.Inst.userInfo.ChangeEnergy(MLife.LifeMaxCount);
+                RefreshData();        
+            }
+        );
+        
     }
     void onBtnCoinClick()
     {
-        DataManager.Inst.userInfo.ChangeEnergy(MLife.LifeMaxCount); 
-        RefreshData();
+        TopBarManager.Inst.FlyToBar(TopBarType.Energy,btn_coin.transform.position,
+            () =>
+            {
+                DataManager.Inst.userInfo.ChangeEnergy(MLife.LifeMaxCount);
+                RefreshData();        
+            }
+        );
     }
 
     void OnSecond()

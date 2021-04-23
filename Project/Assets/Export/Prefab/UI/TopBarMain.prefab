@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: e49c644a46ff2d246b16e72884cdec97, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: e49c644a46ff2d246b16e72884cdec97, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topBarType: 20
+  iconTransform: {fileID: 0}
   btn: {fileID: 255909493790238178}
 --- !u!1 &4598593060158808801
 GameObject:
@@ -565,6 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topBarType: 12
+  iconTransform: {fileID: 0}
 --- !u!1 &5325007876970473552
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topBarType: 2
+  iconTransform: {fileID: 8157247426668940482}
 --- !u!222 &2308353635576660360
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -991,6 +994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topBarType: 1
+  iconTransform: {fileID: 3268011956937734939}
   isHomeBar: 0
 --- !u!1 &7429474188618580046
 GameObject:
@@ -1280,3 +1284,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topBarType: 32
+  iconTransform: {fileID: 0}

@@ -17,7 +17,13 @@ public class UICoinPanel : BaseUI
     }
     void onBtnAdClick()
     {
-        DataManager.Inst.userInfo.ChangeGoodsCount(Table.GoodsId.Coin,200);
+        TopBarManager.Inst.FlyToBar(TopBarType.Coin,btn_ad.transform.position,
+            () =>
+            {
+                DataManager.Inst.userInfo.ChangeGoodsCount(Table.GoodsId.Coin,200);        
+            }
+        );
+        
         txt_coin_count.text = DataManager.Inst.userInfo.Coins.ToString();
     }
 

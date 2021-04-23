@@ -63,6 +63,8 @@ public class ChooseAnwserItem : MonoBehaviour
         else
         {
             setStaus(AnwserStatus.Wrong);
+            //播放消耗能量的动画
+            TopBarManager.Inst.FlyFromBar(TopBarType.Energy,transform.position);
         }
         OnSelectListener.Invoke(isRight);
     }
