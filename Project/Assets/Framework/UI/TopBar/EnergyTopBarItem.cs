@@ -59,17 +59,27 @@ public class EnergyTopBarItem : TopBarItem
     protected override IEnumerator FlyCorutinue(Vector3 startPos,Vector3 endPos, Action callback = null)
     {
         yield return null;
+        string path = "Prefab/Framework/Animation/FlyEnergy";
+        float flyTime = 1f;
+        float disappearTime = 1f;
+        
         Vector3[] points = { startPos, Utils.GetMiddlePoint(startPos, endPos, 0.2f), endPos };
-        GameObject flyCoin = Res.LoadResource<GameObject>("Prefab/Framework/Animation/FlyEnergy");
+        GameObject flyCoin = Res.LoadResource<GameObject>(path);
+        //显示图标
+        flyCoin.transform.GetComponent<Image>().enabled = true;
+        
         flyCoin.transform.SetParent(transform.parent.parent);
         flyCoin.transform.localScale = Vector3.one;
         flyCoin.transform.position = startPos;
 
-        TweenerCore<Vector3, Path, PathOptions> flyTween = flyCoin.transform.DOPath(points, 1f, PathType.CatmullRom).SetEase(Ease.InOutCubic).OnComplete(() =>
-        {
-            Res.Recycle(flyCoin.gameObject);
-            callback?.Invoke();
-        });
+       
+        flyCoin.transform.DOPath(points, flyTime, PathType.CatmullRom).SetEase(Ease.InOutCubic);
+        yield return new WaitForSeconds(flyTime);
+        //隐藏图标
+        flyCoin.transform.GetComponent<Image>().enabled = false;
+        callback?.Invoke();
+        yield return new WaitForSeconds(disappearTime);
+        Res.Recycle(flyCoin.gameObject);
     }
 
     protected void onClick()

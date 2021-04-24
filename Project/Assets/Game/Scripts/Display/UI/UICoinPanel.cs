@@ -8,12 +8,13 @@ using EnhancedScrollerDemos.CellEvents;
 public class UICoinPanel : BaseUI
 {
     public Button btn_ad;
+    public Button btn_close;
     public Text txt_coin_count;
 
     public override void OnAwake()
     {
         btn_ad.onClick.AddListener(onBtnAdClick);
-        
+        btn_ad.onClick.AddListener(() => { Close();});
     }
     void onBtnAdClick()
     {
@@ -30,7 +31,7 @@ public class UICoinPanel : BaseUI
     public override void SetData(params object[] args)
     {
         base.SetData(args);
-        txt_coin_count.text = DataManager.Inst.userInfo.Coins.ToString();
+        txt_coin_count.text = "+200";
     }
 
 
