@@ -30,7 +30,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3447623704835416182}
+  - {fileID: 4061246274573546504}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,32 +97,26 @@ Canvas:
   m_SortingLayerID: -1080684423
   m_SortingOrder: 11
   m_TargetDisplay: 0
---- !u!1001 &3225792317876832418
+--- !u!1001 &4269495476157439196
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 660018408148584398}
     m_Modifications:
-    - target: {fileID: 1477199525857300, guid: a29ab77b55c40c24bb8b2e1f17cce661, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 1535998880683914, guid: a29ab77b55c40c24bb8b2e1f17cce661, type: 3}
       propertyPath: m_Name
-      value: EF_Wordbuild_tuoei_star
+      value: EF_Wordbuild_tuoei_star_blue
       objectReference: {fileID: 0}
-    - target: {fileID: 1535998880683914, guid: a29ab77b55c40c24bb8b2e1f17cce661, type: 3}
-      propertyPath: m_Layer
-      value: 14
+    - target: {fileID: 199500482447819846, guid: a29ab77b55c40c24bb8b2e1f17cce661,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 1808316425473228, guid: a29ab77b55c40c24bb8b2e1f17cce661, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917519531619572, guid: a29ab77b55c40c24bb8b2e1f17cce661, type: 3}
-      propertyPath: m_Layer
-      value: 14
+    - target: {fileID: 199724429011459982, guid: a29ab77b55c40c24bb8b2e1f17cce661,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 224118385440843988, guid: a29ab77b55c40c24bb8b2e1f17cce661,
         type: 3}
@@ -231,9 +225,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a29ab77b55c40c24bb8b2e1f17cce661, type: 3}
---- !u!224 &3447623704835416182 stripped
+--- !u!224 &4061246274573546504 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224118385440843988, guid: a29ab77b55c40c24bb8b2e1f17cce661,
     type: 3}
-  m_PrefabInstance: {fileID: 3225792317876832418}
+  m_PrefabInstance: {fileID: 4269495476157439196}
   m_PrefabAsset: {fileID: 0}
