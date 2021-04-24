@@ -90,11 +90,13 @@ public class ChooseAnwserItem : MonoBehaviour
                 bg.sprite = sprite_bg_right;
                 status_sign.gameObject.SetActive(true);
                 status_sign.sprite = sprite_sign_right;
+                status_sign.SetNativeSize();
                 break;
             case AnwserStatus.Wrong:
                 bg.sprite = sprite_bg_wrong;
                 status_sign.gameObject.SetActive(true);
                 status_sign.sprite = sprite_sign_wrong;
+                status_sign.SetNativeSize();
                 break;
             default:
                 bg.sprite = sprite_bg_default;

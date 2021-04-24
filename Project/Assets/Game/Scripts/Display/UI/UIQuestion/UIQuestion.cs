@@ -22,6 +22,7 @@ public class UIQuestion : BaseUI
     [SerializeField] private Button _btn_explain;
     [SerializeField] private Button _btn_nextLevel;
     [SerializeField] private Button _btn_illustration;
+    [SerializeField] private RectTransform _space1;
     [SerializeField] private RectTransform _space;
     [SerializeField] private Image img_illustration;
     [SerializeField] private QuestionComponent _questionComponent;
@@ -162,7 +163,7 @@ public class UIQuestion : BaseUI
                 img_illustration.gameObject.SetActive(true);
                 // _space.gameObject.SetActive(false);
 
-                float customHeight = 160f;//指定高度为215
+                float customHeight = 113f;//指定高度为215
                 _illustrationComponent.sprite = s;
                 var h = s.texture.height;
                 var w = s.texture.width;
@@ -208,12 +209,15 @@ public class UIQuestion : BaseUI
         sumH -= _layout.spacing * 4;
         if (sumH <= 40)
         {
+            _space1.gameObject.SetActive(false);
             _space.gameObject.SetActive(false); 
         }
         else
         {
             yield return null;
-            _space.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, sumH*0.67f);
+            _space.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, sumH*0.67f-_layout.spacing*2);
+            _space1.gameObject.SetActive(true);
+            _space.gameObject.SetActive(true); 
             LayoutRebuilder.ForceRebuildLayoutImmediate(_layoutRect);
         }
     }

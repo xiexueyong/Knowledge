@@ -17,7 +17,7 @@ MonoBehaviour:
   _serverType: 1
   Fotoable_Gateway: http://api.gamepail.com/memoryqa/
   Local_Gateway: http://localhost:18088/
-  DebugEnable: 0
+  DebugEnable: 1
   NetEnable: 0
   UseDebugLevel: 1
   RewardSucess: 0
