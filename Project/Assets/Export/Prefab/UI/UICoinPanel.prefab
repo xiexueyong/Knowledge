@@ -434,6 +434,7 @@ MonoBehaviour:
   m_root: {fileID: 0}
   _start: 0
   btn_ad: {fileID: 5216599516998758245}
+  btn_close: {fileID: 2792535829621847937}
   txt_coin_count: {fileID: 2191292810845659939}
 --- !u!1 &3685282509965017353
 GameObject:
