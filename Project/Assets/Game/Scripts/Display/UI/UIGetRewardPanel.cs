@@ -7,6 +7,7 @@ using EnhancedScrollerDemos.CellEvents;
 
 public class UIGetRewardPanel : BaseUI
 {
+    public Image coin_image;
     public Button btn_confirm;
     public Text txt_coin_num;
     private int coin_num;
@@ -22,7 +23,13 @@ public class UIGetRewardPanel : BaseUI
 
     void onConfirmClick()
     {
-        DataManager.Inst.userInfo.ChangeGoodsCount(Table.GoodsId.Coin,coin_num);
+        TopBarManager.Inst.FlyToBar(TopBarType.Coin,coin_image.transform.position,
+            () =>
+            {
+                DataManager.Inst.userInfo.ChangeGoodsCount(Table.GoodsId.Coin,coin_num);        
+            }
+        );
+        
         Close();
     }
     
@@ -30,7 +37,7 @@ public class UIGetRewardPanel : BaseUI
     {
         base.SetData(args);
         coin_num = (int)args[0];
-        txt_coin_num.text = coin_num.ToString();
+        txt_coin_num.text = "+"+coin_num.ToString();
     }
 
 

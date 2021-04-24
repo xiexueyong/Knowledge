@@ -59,14 +59,14 @@ public class DegreeComponent : MonoBehaviour
         {
             curLevel = level;
             txt_level.text = string.Format("{0}/{1}",level,_curDegree.levelTop);
-            //空：10，满：280
-            float w = (level-levelBottom)*1f/(_curDegree.levelTop - levelBottom)*270;
+            //空：22，满：379
+            float w = (level-levelBottom)*1f/(_curDegree.levelTop - levelBottom)*(379-22);
             if (_tween != null)
             {
                 DOTween.Kill(_tween);
             }
             _tween = DOTween.To(() => degree_progress.rectTransform.sizeDelta, x => degree_progress.rectTransform.sizeDelta = x,
-                new Vector2(10 + w, 18), 0.5f);
+                new Vector2(22 + w, 27), 0.5f);
             //degree_progress.rectTransform.sizeDelta = new Vector2(10+w,18);    
         }
         

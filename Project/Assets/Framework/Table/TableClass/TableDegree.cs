@@ -18,8 +18,6 @@ namespace Framework.Tables
 
 		//Id
 		public int Id { private set; get; }
-		//等级下线
-		public int levelBottom { private set; get; }
 		//等级上线
 		public int levelTop { private set; get; }
 		//学位名称
@@ -67,7 +65,6 @@ namespace Framework.Tables
                 foreach (var itemData in data.Children) {
                     TableDegree item = new TableDegree ();
 					item.Id = itemData["Id"];
-					item.levelBottom = itemData["levelBottom"];
 					item.levelTop = itemData["levelTop"];
 					item.degreeName = itemData["degreeName"];
 					item.degreeRaise = itemData["degreeRaise"];
@@ -94,7 +91,6 @@ namespace Framework.Tables
             foreach (var itemData in data.Children) {
                 TableDegree item = new TableDegree ();
 					item.Id = itemData["Id"];
-					item.levelBottom = itemData["levelBottom"];
 					item.levelTop = itemData["levelTop"];
 					item.degreeName = itemData["degreeName"];
 					item.degreeRaise = itemData["degreeRaise"];

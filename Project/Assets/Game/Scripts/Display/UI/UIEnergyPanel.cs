@@ -9,6 +9,7 @@ public class UIEnergyPanel : BaseUI
 {
     public Button btn_ad;
     public Button btn_coin;
+    public Button btn_close;
     public Text txt_cd;
     public Text txt_energy_count;
 
@@ -16,7 +17,7 @@ public class UIEnergyPanel : BaseUI
     {
         btn_ad.onClick.AddListener(onBtnAdClick);
         btn_coin.onClick.AddListener(onBtnCoinClick);
-        
+        btn_close.onClick.AddListener(() => { Close();});
     }
     public override void OnStart()
     {
@@ -61,7 +62,7 @@ public class UIEnergyPanel : BaseUI
 
     void RefreshData()
     {
-        txt_energy_count.text = DataManager.Inst.userInfo.Energy.ToString();
+        txt_energy_count.text = "当前体力："+DataManager.Inst.userInfo.Energy.ToString();
         txt_cd.text = CommonUtil.SecondToTimeFormat(MLifeManager.Inst.RemainInfiniteSecond);
     }
     public override void SetData(params object[] args)

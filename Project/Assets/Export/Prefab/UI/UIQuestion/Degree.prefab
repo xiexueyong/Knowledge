@@ -187,7 +187,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -189.6, y: 0.000029802}
-  m_SizeDelta: {x: 122.96283, y: 27.761986}
+  m_SizeDelta: {x: 379, y: 27.761986}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &4083643646723252760
 CanvasRenderer:
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 2123030175304780776}
   - component: {fileID: 1018747537556346406}
   m_Layer: 5
-  m_Name: Degree 1
+  m_Name: Degree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
