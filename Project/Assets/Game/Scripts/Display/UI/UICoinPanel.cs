@@ -14,7 +14,7 @@ public class UICoinPanel : BaseUI
     public override void OnAwake()
     {
         btn_ad.onClick.AddListener(onBtnAdClick);
-        btn_ad.onClick.AddListener(() => { Close();});
+        btn_close.onClick.AddListener(() => { Close();});
     }
     void onBtnAdClick()
     {

@@ -6,7 +6,7 @@ public class HomeScene : MonoBehaviour
 {
     void Start()
     {
-        ScapeTool.Inst.SetScape("");
+        ScapeTool.Inst.SetScape("bg004");
         UIManager.Inst.ShowUI(UIName.UITest);
         UIManager.Inst.ShowUI(UIName.UILobby);
         SoundPlay.PlayMusic("music_04");

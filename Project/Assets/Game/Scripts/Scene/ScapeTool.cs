@@ -9,32 +9,33 @@ public class ScapeTool : S_Destroy_MonoSingleton<ScapeTool>
    public Transform root;
    public Camera scapeCamera;
 
-   private string sceneName;
+   private string scapeName;
+
+   private GameObject scapeObj;
    //Prefab/UI/Scapes/
    public void SetScape(string scapeName)
    {
-      if (this.sceneName == scapeName)
+      if (this.scapeName == scapeName)
       {
          return;
       }
-      var path = "Prefab/UI/Scapes/scape1";
-      GameObject g = Res.LoadResource<GameObject>(path);
-      g.transform.SetParent(root);
-      g.transform.localPosition = Vector3.zero;
 
+      if (scapeObj != null)
+      {
+         Res.Recycle(scapeObj);
+      }
+      var path = "Prefab/scapes/"+scapeName;
+      scapeObj = Res.LoadResource<GameObject>(path);
+      scapeObj.transform.SetParent(root);
+      scapeObj.transform.localPosition = Vector3.zero;
       
-      var size2 = g.transform.GetComponent<SpriteRenderer>().size;
-
-      var TextureSize = g.transform.GetComponent<SpriteRenderer>().bounds.size;
+      // var size2 = g.transform.Find("bg").GetComponent<SpriteRenderer>().size;
+      var TextureSize = scapeObj.transform.Find("bg").GetComponent<SpriteRenderer>().bounds.size;
       float screenR = Screen.width*1f/Screen.height;
       float textureR = TextureSize.x / TextureSize.y;
-      
       float cameraSize = TextureSize.y / 2f;
       
-      
       scapeCamera.orthographicSize = textureR < screenR ? cameraSize*textureR/screenR : cameraSize;
-
-
    }
    
 }

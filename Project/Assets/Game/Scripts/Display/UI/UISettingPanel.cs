@@ -15,11 +15,13 @@ public class UISettingPanel : BaseUI
     
     public Button btn_sound;
     public Button btn_music;
+    public Button btn_close;
     
     public override void OnAwake()
     {
         btn_sound.onClick.AddListener(onBtnSoundClick);
         btn_music.onClick.AddListener(onBtnMusicClick);
+        btn_close.onClick.AddListener(() => { Close();});
     }
     void onBtnSoundClick()
     {
