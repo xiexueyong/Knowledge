@@ -42,7 +42,8 @@ public class UILobby : BaseUI
         {
             return;
         }
-        level_txt.text = DataManager.Inst.userInfo.Level.ToString();
+
+        level_txt.text = "知识之旅";//DataManager.Inst.userInfo.Level.ToString();
 
         int lb;
         var ld = LevelHelper.getDegree(DataManager.Inst.userInfo.Level,out lb);
