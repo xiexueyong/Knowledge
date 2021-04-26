@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AssetBundleConfig
   m_EditorClassIdentifier: 
   appVersion: 1.0.0
-  AssetVersion: 1.0.157
+  AssetVersion: 1.0.158
   UseAssetBundle: 0
   ReleaseImmediate: 0
   CompleteAsset: 1
@@ -24,9 +24,18 @@ MonoBehaviour:
     - Path: Prefab
       BaseBundle: 1
       releaseMode: 1
-      Multiple: 0
-      subBundleInfos: []
-      multipleView: 0
+      Multiple: 1
+      subBundleInfos:
+      - Path: Prefab/Framework
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Prefab/UI
+        BaseBundle: 1
+        releaseMode: 1
+      - Path: Prefab/scapes
+        BaseBundle: 1
+        releaseMode: 1
+      multipleView: 1
     - Path: Table
       BaseBundle: 1
       releaseMode: 1
