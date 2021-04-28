@@ -17,6 +17,8 @@ public class UIQuestion : BaseUI
     //解析、下一题按钮
     private Text txt_subject;
     private Text txt_question;
+    public FlipToLeftPage FlipToLeftPage;
+    public SceneRenderTxture SceneRenderTxture;
 
     [SerializeField] private Image img_bg;
     [SerializeField] private Button _btn_explain;
@@ -105,6 +107,13 @@ public class UIQuestion : BaseUI
     
     void OnNextLevelClick()
     {
+        //Texture2D texture2D = SceneRenderTxture.GrabPass(UIManager.Inst.UICamera, ScapeTool.Inst.scapeCamera);
+        FlipToLeftPage.FlipPage(nextLevel,null);
+    }
+
+    void nextLevel()
+    {
+        
         int nextLevel = ++_curLevel;
         if (nextLevel > Table.GameConst.levelMax)
         {
@@ -116,7 +125,6 @@ public class UIQuestion : BaseUI
             SoundPlay.PlaySFX(Table.Sound.next_level);
             SetQuestion(nextLevel);    
         }
-        
     }
 
     void Reset()
