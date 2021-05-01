@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BaseAnwserItem : MonoBehaviour
 {
-    
+    public Animator Animator;
     [SerializeField] private Sprite sprite_bg_default;
     [SerializeField] private Sprite sprite_bg_right;
     [SerializeField] private Sprite sprite_bg_wrong;
@@ -93,16 +93,19 @@ public class BaseAnwserItem : MonoBehaviour
                 status_sign.gameObject.SetActive(true);
                 status_sign.sprite = sprite_sign_right;
                 status_sign.SetNativeSize();
+                Animator.Play("anim_anwsers_choose_right");
                 break;
             case AnwserStatus.Wrong:
                 bg.sprite = sprite_bg_wrong;
                 status_sign.gameObject.SetActive(true);
                 status_sign.sprite = sprite_sign_wrong;
                 status_sign.SetNativeSize();
+                Animator.Play("anim_anwsers_choose_wrong");
                 break;
             default:
                 bg.sprite = sprite_bg_default;
                 status_sign.gameObject.SetActive(false);
+                // Animator.Play("anim_anwsers_choose_right");
                 break;
         }
     }

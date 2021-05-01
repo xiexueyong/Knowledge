@@ -8,7 +8,7 @@ public class JudgeAnwsersComponent : MonoBehaviour
    
     private string[] _anwserKeys = new[] {"Y", "N"};
     
-    private Dictionary<string, JudgeAnwserItem> anwserItems;
+    private Dictionary<string, BaseAnwserItem> anwserItems;
 
     private string rightAnwser;
 
@@ -16,10 +16,10 @@ public class JudgeAnwsersComponent : MonoBehaviour
     // Start is called before the first frame update
     public void Init()
     {
-        anwserItems = new Dictionary<string, JudgeAnwserItem>();
+        anwserItems = new Dictionary<string, BaseAnwserItem>();
         foreach (var key in _anwserKeys)
         {
-            var c = transform.Find(key).GetComponent<JudgeAnwserItem>();
+            var c = transform.Find(key).GetComponent<BaseAnwserItem>();
             c.OnSelectListener += OnSelectAnwser;
             anwserItems[key] = c;
         }

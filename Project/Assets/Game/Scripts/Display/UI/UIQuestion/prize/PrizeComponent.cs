@@ -6,7 +6,7 @@ using UnityEngine;
 public class PrizeComponent : MonoBehaviour
 {
    
-   public float second = 1.5f;
+   public float second = 5f;
    private float _passedSecond;
    private bool _show;
    public void Show()
