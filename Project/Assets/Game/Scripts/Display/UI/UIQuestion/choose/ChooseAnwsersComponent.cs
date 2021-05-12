@@ -31,7 +31,7 @@ public class ChooseAnwsersComponent : MonoBehaviour
         foreach (var anwserItem in anwserItems)
         {
             var key = anwserItem.Key;
-            anwserItem.Value.SetAnwser(key,anwsers[key],rightAnwser == key);
+            anwserItem.Value.SetAnwser(key,anwsers[key],rightAnwser.Trim().ToLower() == key.Trim().ToLower());
         }
     }
 
